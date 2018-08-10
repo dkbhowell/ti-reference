@@ -11,6 +11,12 @@ import UIKit
 class TechnologyTableViewController: UITableViewController {
     let reuseId = "cellReuseId"
     var technologies = Technology.allGenerics
+    var faction: Faction?
+    
+    convenience init(withFaction faction: Faction) {
+        self.init(withTechnologies: faction.factionTechs + Technology.allGenerics)
+        self.faction = faction
+    }
     
     init(withTechnologies techs: [Technology]) {
         self.technologies = techs
@@ -48,7 +54,11 @@ class TechnologyTableViewController: UITableViewController {
     }
     
     @objc private func clearOwnedTechs() {
-        PlayerState.shared.ownedTechnologies = []
+        if let faction = faction {
+            PlayerState.shared.ownedTechnologies = faction.startingTechs
+        } else {
+            PlayerState.shared.ownedTechnologies = []
+        }
         tableView.reloadData()
     }
 

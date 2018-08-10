@@ -13,27 +13,28 @@ struct Faction {
     let resourcePrefix: String
     let deviation: Double
     var factionTechs: [Technology]
+    let startingTechs: [Technology]
 }
 
 extension Faction {
     static let factions = [
-        Faction(name: "The Yssaril Tribes", resourcePrefix: "yssaril", deviation: 0.12, factionTechs: Technology.factionSpecific.yssaril.both),
-        Faction(name: "The Federation of Sol", resourcePrefix: "sol", deviation: 1.87, factionTechs: Technology.factionSpecific.sol.both),
-        Faction(name: "The Arborec", resourcePrefix: "arborec", deviation: -0.78, factionTechs: Technology.factionSpecific.arborec.both),
-        Faction(name: "The Barony of Letnev", resourcePrefix: "barony", deviation: -0.69, factionTechs: Technology.factionSpecific.barony.both),
-        Faction(name: "The Embers of Muaat", resourcePrefix: "embers", deviation: -1.04, factionTechs: Technology.factionSpecific.muaat.both),
-        Faction(name: "The Ghosts of Creuss", resourcePrefix: "ghosts", deviation: -0.03, factionTechs: Technology.factionSpecific.ghosts.both),
-        Faction(name: "The Emirates of Hacan", resourcePrefix: "hacan", deviation: 1.02, factionTechs: Technology.factionSpecific.hacan.both),
-        Faction(name: "The Universities of Jol-Nar", resourcePrefix: "jolnar", deviation: 1.90, factionTechs: Technology.factionSpecific.jolnar.both),
-        Faction(name: "The L1Z1X Mindnet", resourcePrefix: "l1z1x", deviation: -0.08, factionTechs: Technology.factionSpecific.l1z1x.both),
-        Faction(name: "The Mentak Coalition", resourcePrefix: "mentak", deviation: -0.42, factionTechs: Technology.factionSpecific.mentak.both),
-        Faction(name: "The Naalu Collective", resourcePrefix: "naalu", deviation: 0.20, factionTechs: Technology.factionSpecific.naalu.both),
-        Faction(name: "The Nekro Virus", resourcePrefix: "nekro", deviation: -0.36, factionTechs: Technology.factionSpecific.nekro.both),
-        Faction(name: "The Clan of Saar", resourcePrefix: "saar", deviation: 1.12, factionTechs: Technology.factionSpecific.saar.both),
-        Faction(name: "The Winnu", resourcePrefix: "winnu", deviation: 0.17, factionTechs: Technology.factionSpecific.winnu.both),
-        Faction(name: "The XxCha", resourcePrefix: "xxcha", deviation: -1.26, factionTechs: Technology.factionSpecific.xxcha.both),
-        Faction(name: "The Yin Brotherhood", resourcePrefix: "yin", deviation: -0.19, factionTechs: Technology.factionSpecific.yin.both),
-        Faction(name: "The Sardakk N'orr", resourcePrefix: "sardakk", deviation: -1.56, factionTechs: Technology.factionSpecific.sardakk.both)
+        Faction(name: "The Yssaril Tribes", resourcePrefix: "yssaril", deviation: 0.12, factionTechs: Technology.factionSpecific.yssaril.both, startingTechs: [Technology.green.neuralMotivator]),
+        Faction(name: "The Federation of Sol", resourcePrefix: "sol", deviation: 1.87, factionTechs: Technology.factionSpecific.sol.both, startingTechs: [Technology.green.neuralMotivator, Technology.blue.antiMass]),
+        Faction(name: "The Arborec", resourcePrefix: "arborec", deviation: -0.78, factionTechs: Technology.factionSpecific.arborec.both, startingTechs: [Technology.red.magenDefense]),
+        Faction(name: "The Barony of Letnev", resourcePrefix: "barony", deviation: -0.69, factionTechs: Technology.factionSpecific.barony.both, startingTechs: [Technology.red.plasmaScoring, Technology.blue.antiMass]),
+        Faction(name: "The Embers of Muaat", resourcePrefix: "embers", deviation: -1.04, factionTechs: Technology.factionSpecific.muaat.both, startingTechs: [Technology.red.plasmaScoring]),
+        Faction(name: "The Ghosts of Creuss", resourcePrefix: "ghosts", deviation: -0.03, factionTechs: Technology.factionSpecific.ghosts.both, startingTechs: [Technology.blue.gravityDrive]),
+        Faction(name: "The Emirates of Hacan", resourcePrefix: "hacan", deviation: 1.02, factionTechs: Technology.factionSpecific.hacan.both, startingTechs: [Technology.yellow.sarweenTools, Technology.blue.antiMass]),
+        Faction(name: "The Universities of Jol-Nar", resourcePrefix: "jolnar", deviation: 1.90, factionTechs: Technology.factionSpecific.jolnar.both, startingTechs: [Technology.red.plasmaScoring, Technology.blue.antiMass, Technology.yellow.sarweenTools, Technology.green.neuralMotivator]),
+        Faction(name: "The L1Z1X Mindnet", resourcePrefix: "l1z1x", deviation: -0.08, factionTechs: Technology.factionSpecific.l1z1x.both, startingTechs: [Technology.green.neuralMotivator, Technology.red.plasmaScoring]),
+        Faction(name: "The Mentak Coalition", resourcePrefix: "mentak", deviation: -0.42, factionTechs: Technology.factionSpecific.mentak.both, startingTechs: [Technology.yellow.sarweenTools, Technology.red.plasmaScoring]),
+        Faction(name: "The Naalu Collective", resourcePrefix: "naalu", deviation: 0.20, factionTechs: Technology.factionSpecific.naalu.both, startingTechs: [Technology.yellow.sarweenTools, Technology.green.neuralMotivator]),
+        Faction(name: "The Nekro Virus", resourcePrefix: "nekro", deviation: -0.36, factionTechs: Technology.factionSpecific.nekro.both, startingTechs: [Technology.green.dacxiveAnimators]),
+        Faction(name: "The Clan of Saar", resourcePrefix: "saar", deviation: 1.12, factionTechs: Technology.factionSpecific.saar.both, startingTechs: [Technology.blue.antiMass]),
+        Faction(name: "The Winnu", resourcePrefix: "winnu", deviation: 0.17, factionTechs: Technology.factionSpecific.winnu.both, startingTechs: [Technology.yellow.sarweenTools]),
+        Faction(name: "The XxCha", resourcePrefix: "xxcha", deviation: -1.26, factionTechs: Technology.factionSpecific.xxcha.both, startingTechs: [Technology.yellow.gravitonLaser]),
+        Faction(name: "The Yin Brotherhood", resourcePrefix: "yin", deviation: -0.19, factionTechs: Technology.factionSpecific.yin.both, startingTechs: [Technology.yellow.sarweenTools]),
+        Faction(name: "The Sardakk N'orr", resourcePrefix: "sardakk", deviation: -1.56, factionTechs: Technology.factionSpecific.sardakk.both, startingTechs: [])
     ]
 }
 
