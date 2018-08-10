@@ -18,6 +18,9 @@
 		DA0F058B211DEC50004D4B70 /* FactionAspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F058A211DEC50004D4B70 /* FactionAspect.swift */; };
 		DA0F058D211DEE7A004D4B70 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F058C211DEE7A004D4B70 /* UIView+.swift */; };
 		DA0F058F211DFA1E004D4B70 /* LabeledImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */; };
+		DA0F0591211E0715004D4B70 /* TechCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F0590211E0715004D4B70 /* TechCardView.swift */; };
+		DA0F0593211E07CD004D4B70 /* TechCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0F0592211E07CD004D4B70 /* TechCardView.xib */; };
+		DA98B24F211E0A9400A776E4 /* TechnologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		DA0F058A211DEC50004D4B70 /* FactionAspect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactionAspect.swift; sourceTree = "<group>"; };
 		DA0F058C211DEE7A004D4B70 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledImage.swift; sourceTree = "<group>"; };
+		DA0F0590211E0715004D4B70 /* TechCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechCardView.swift; sourceTree = "<group>"; };
+		DA0F0592211E07CD004D4B70 /* TechCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TechCardView.xib; sourceTree = "<group>"; };
+		DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,8 @@
 				DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */,
 				DA0F0586211D51DC004D4B70 /* Faction.swift */,
 				DA0F058A211DEC50004D4B70 /* FactionAspect.swift */,
+				DA0F0590211E0715004D4B70 /* TechCardView.swift */,
+				DA0F0592211E07CD004D4B70 /* TechCardView.xib */,
 				DA0F0572211D1EC0004D4B70 /* AppDelegate.swift */,
 				DA0F0574211D1EC0004D4B70 /* FlipImageViewerController.swift */,
 				DA0F0576211D1EC0004D4B70 /* Main.storyboard */,
@@ -78,6 +86,7 @@
 				DA0F057B211D1EC2004D4B70 /* LaunchScreen.storyboard */,
 				DA0F057E211D1EC2004D4B70 /* Info.plist */,
 				DA0F058C211DEE7A004D4B70 /* UIView+.swift */,
+				DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */,
 			);
 			path = TwilightImperiumReference;
 			sourceTree = "<group>";
@@ -142,6 +151,7 @@
 			files = (
 				DA0F057D211D1EC2004D4B70 /* LaunchScreen.storyboard in Resources */,
 				DA0F057A211D1EC2004D4B70 /* Assets.xcassets in Resources */,
+				DA0F0593211E07CD004D4B70 /* TechCardView.xib in Resources */,
 				DA0F0578211D1EC0004D4B70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,8 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0F0591211E0715004D4B70 /* TechCardView.swift in Sources */,
 				DA0F0587211D51DC004D4B70 /* Faction.swift in Sources */,
 				DA0F058F211DFA1E004D4B70 /* LabeledImage.swift in Sources */,
+				DA98B24F211E0A9400A776E4 /* TechnologyTableViewController.swift in Sources */,
 				DA0F0585211D51C5004D4B70 /* FactionTableViewController.swift in Sources */,
 				DA0F058D211DEE7A004D4B70 /* UIView+.swift in Sources */,
 				DA0F0589211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift in Sources */,

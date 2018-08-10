@@ -1,20 +1,28 @@
 //
-//  FactionTableViewController.swift
+//  TechnologyTableViewController.swift
 //  TwilightImperiumReference
 //
-//  Created by Dustin Howell on 8/9/18.
+//  Created by Dustin Howell on 8/10/18.
 //  Copyright © 2018 Dustin Howell. All rights reserved.
 //
 
 import UIKit
 
-class FactionTableViewController: UITableViewController {
-    let reuseId = "factionCellReuseId"
-    
-    var factions = Faction.factions
+class TechnologyTableViewController: UITableViewController {
+    let reuseId = "cellReuseId"
+    var technologies = Technology.allGenerics
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -24,28 +32,33 @@ class FactionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return factions.count
+        return technologies.count
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseId) ?? UITableViewCell(style: .subtitle, reuseIdentifier: reuseId)
-        let faction = factions[indexPath.row]
-        cell.textLabel?.text = faction.name
+
+        cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+        let technology = technologies[indexPath.row]
+        let prereqs: String = technology.prerequesite.map {
+            switch $0 {
+            case .blue:
+                return "B"
+            case .red:
+                return "R"
+            case .yellow:
+                return "Y"
+            case .green:
+                return "G"
+            }
+        }.joined()
+        let techCard = TechCardView(title: technology.name, cardText: technology.description, prereqString: prereqs)
+        cell.contentView.addSubview(techCard)
+        techCard.pin(toView: cell.contentView)
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let faction = factions[indexPath.row]
-//        let firstImage = UIImage(named: "\(faction.resourcePrefix)_front")!
-//        let secondImage = UIImage(named: "\(faction.resourcePrefix)_back")!
-//        let factionSheetImageController = FlipImageViewerController(firstImage: firstImage, secondImage: secondImage)
-        
-//        let factionAspectsController = FactionAspectsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        
-        let techController = TechnologyTableViewController()
-        self.navigationController?.pushViewController(techController, animated: true)
-    }
+ 
 
     /*
     // Override to support conditional editing of the table view.
