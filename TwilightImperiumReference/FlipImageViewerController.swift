@@ -18,6 +18,8 @@ class FlipImageViewerController: UIViewController {
     let firstImage: UIImage
     let secondImage: UIImage
     
+    let flipSpeed = 0.75
+    
     init(firstImage: UIImage, secondImage: UIImage) {
         self.firstImage = firstImage
         self.secondImage = secondImage
@@ -104,7 +106,7 @@ class FlipImageViewerController: UIViewController {
         print("flipping image!")
         let fromImage = showingImage
         let toImage = showingImage == firstImageView ? secondImageView : firstImageView
-        UIView.transition(from: fromImage!, to: toImage!, duration: 1, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+        UIView.transition(from: fromImage!, to: toImage!, duration: flipSpeed, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
         showingImage = toImage
     }
     
