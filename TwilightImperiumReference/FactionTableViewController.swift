@@ -40,6 +40,8 @@ class FactionTableViewController: UITableViewController {
         let firstImage = UIImage(named: "\(faction.resourcePrefix)_front")!
         let secondImage = UIImage(named: "\(faction.resourcePrefix)_back")!
         let factionSheetImageController = FlipImageViewerController(firstImage: firstImage, secondImage: secondImage)
+        
+//        let factionAspectsController = FactionAspectsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         self.navigationController?.pushViewController(factionSheetImageController, animated: true)
     }
 

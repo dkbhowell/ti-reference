@@ -14,6 +14,10 @@
 		DA0F057D211D1EC2004D4B70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0F057B211D1EC2004D4B70 /* LaunchScreen.storyboard */; };
 		DA0F0585211D51C5004D4B70 /* FactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F0584211D51C5004D4B70 /* FactionTableViewController.swift */; };
 		DA0F0587211D51DC004D4B70 /* Faction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F0586211D51DC004D4B70 /* Faction.swift */; };
+		DA0F0589211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F0588211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift */; };
+		DA0F058B211DEC50004D4B70 /* FactionAspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F058A211DEC50004D4B70 /* FactionAspect.swift */; };
+		DA0F058D211DEE7A004D4B70 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F058C211DEE7A004D4B70 /* UIView+.swift */; };
+		DA0F058F211DFA1E004D4B70 /* LabeledImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		DA0F057E211D1EC2004D4B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA0F0584211D51C5004D4B70 /* FactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactionTableViewController.swift; sourceTree = "<group>"; };
 		DA0F0586211D51DC004D4B70 /* Faction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faction.swift; sourceTree = "<group>"; };
+		DA0F0588211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactionAspectsCollectionViewController.swift; sourceTree = "<group>"; };
+		DA0F058A211DEC50004D4B70 /* FactionAspect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactionAspect.swift; sourceTree = "<group>"; };
+		DA0F058C211DEE7A004D4B70 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +67,17 @@
 			isa = PBXGroup;
 			children = (
 				DA0F0584211D51C5004D4B70 /* FactionTableViewController.swift */,
+				DA0F0588211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift */,
+				DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */,
 				DA0F0586211D51DC004D4B70 /* Faction.swift */,
+				DA0F058A211DEC50004D4B70 /* FactionAspect.swift */,
 				DA0F0572211D1EC0004D4B70 /* AppDelegate.swift */,
 				DA0F0574211D1EC0004D4B70 /* FlipImageViewerController.swift */,
 				DA0F0576211D1EC0004D4B70 /* Main.storyboard */,
 				DA0F0579211D1EC2004D4B70 /* Assets.xcassets */,
 				DA0F057B211D1EC2004D4B70 /* LaunchScreen.storyboard */,
 				DA0F057E211D1EC2004D4B70 /* Info.plist */,
+				DA0F058C211DEE7A004D4B70 /* UIView+.swift */,
 			);
 			path = TwilightImperiumReference;
 			sourceTree = "<group>";
@@ -142,8 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA0F0587211D51DC004D4B70 /* Faction.swift in Sources */,
+				DA0F058F211DFA1E004D4B70 /* LabeledImage.swift in Sources */,
 				DA0F0585211D51C5004D4B70 /* FactionTableViewController.swift in Sources */,
+				DA0F058D211DEE7A004D4B70 /* UIView+.swift in Sources */,
+				DA0F0589211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift in Sources */,
 				DA0F0575211D1EC0004D4B70 /* FlipImageViewerController.swift in Sources */,
+				DA0F058B211DEC50004D4B70 /* FactionAspect.swift in Sources */,
 				DA0F0573211D1EC0004D4B70 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
