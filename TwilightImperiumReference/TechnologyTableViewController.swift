@@ -15,14 +15,22 @@ class TechnologyTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let doneNavButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finish))
+        navigationItem.rightBarButtonItem = doneNavButton
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
+        tableView.allowsSelection = false
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @objc private func finish() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -41,21 +49,24 @@ class TechnologyTableViewController: UITableViewController {
 
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         let technology = technologies[indexPath.row]
-        let prereqs: String = technology.prerequesite.map {
-            switch $0 {
-            case .blue:
-                return "B"
-            case .red:
-                return "R"
-            case .yellow:
-                return "Y"
-            case .green:
-                return "G"
-            }
-        }.joined()
-        let techCard = TechCardView(title: technology.name, cardText: technology.description, prereqString: prereqs)
+        let techCard = TechCardView(title: technology.name, cardText: technology.description, prereqString: technology.prereqString)
+        let cardColor: UIColor
+        switch technology.type {
+        case .blue:
+            cardColor = UIColor.blue.withAlphaComponent(0.3)
+        case .yellow:
+            cardColor = UIColor.yellow.withAlphaComponent(0.3)
+        case .green:
+            cardColor = UIColor.green.withAlphaComponent(0.3)
+        case .red:
+            cardColor = UIColor.red.withAlphaComponent(0.3)
+        case .none:
+            cardColor = UIColor.white
+        }
+        techCard.backgroundColor = cardColor
         cell.contentView.addSubview(techCard)
-        techCard.pin(toView: cell.contentView)
+        techCard.pin(toView: cell.contentView, withPadding: UIEdgeInsets(top: 2, left: 8, bottom: 2, right: 8))
+        techCard.layer.cornerRadius = 10
         return cell
     }
  

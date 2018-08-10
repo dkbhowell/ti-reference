@@ -17,10 +17,12 @@ class FlipImageViewerController: UIViewController {
     var containerView: UIView!
     let firstImage: UIImage
     let secondImage: UIImage
+    let faction: Faction
     
     let flipSpeed = 0.75
     
-    init(firstImage: UIImage, secondImage: UIImage) {
+    init(faction: Faction, firstImage: UIImage, secondImage: UIImage) {
+        self.faction = faction
         self.firstImage = firstImage
         self.secondImage = secondImage
         super.init(nibName: nil, bundle: Bundle(for: FlipImageViewerController.self))
@@ -94,10 +96,20 @@ class FlipImageViewerController: UIViewController {
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(flipImage))
         containerView.addGestureRecognizer(tapRec)
         containerView.isUserInteractionEnabled = true
+        
+        // right bar button item
+        let factionTechImage = UIImage(named: "brain_small")!
+        let factionTechButton = UIBarButtonItem(image: factionTechImage, style: .plain, target: self, action: #selector(showFactionTech))
+        navigationItem.rightBarButtonItem = factionTechButton
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let shiftHeight = (scrollView.frame.height/2.0) - (view.frame.width/2.0)
         scrollView.contentInset.top = shiftHeight
     }
@@ -121,6 +133,11 @@ class FlipImageViewerController: UIViewController {
             let shiftWidth = scrollView.frame.width/2.0 - scrollView.contentSize.width/2.0
             scrollView.contentInset.left = shiftWidth
         }
+    }
+    
+    @objc private func showFactionTech() {
+        let factionTechController = FactionTechViewController(faction: faction)
+        present(factionTechController, animated: true, completion: nil)
     }
 }
 

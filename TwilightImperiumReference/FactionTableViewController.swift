@@ -11,10 +11,21 @@ import UIKit
 class FactionTableViewController: UITableViewController {
     let reuseId = "factionCellReuseId"
     
-    var factions = Faction.factions
+    var factions = Faction.factions.sorted { $0.deviation > $1.deviation }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let allTechIcon = UIImage(named: "brain_small")!
+        let allTechBarButtonItem = UIBarButtonItem(image: allTechIcon, style: .plain, target: self, action: #selector(showGenericTechs))
+        navigationItem.rightBarButtonItem = allTechBarButtonItem
+        navigationItem.title = "TI4 Factions"
+    }
+    
+    @objc private func showGenericTechs() {
+        let techTable = TechnologyTableViewController()
+        let newNav = UINavigationController(rootViewController: techTable)
+        present(newNav, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -28,23 +39,24 @@ class FactionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId) ?? UITableViewCell(style: .subtitle, reuseIdentifier: reuseId)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId) ?? UITableViewCell(style: .value1, reuseIdentifier: reuseId)
         let faction = factions[indexPath.row]
         cell.textLabel?.text = faction.name
+        cell.detailTextLabel?.text = "\(faction.deviation)"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let faction = factions[indexPath.row]
-//        let firstImage = UIImage(named: "\(faction.resourcePrefix)_front")!
-//        let secondImage = UIImage(named: "\(faction.resourcePrefix)_back")!
-//        let factionSheetImageController = FlipImageViewerController(firstImage: firstImage, secondImage: secondImage)
+        let firstImage = UIImage(named: "\(faction.resourcePrefix)_front")!
+        let secondImage = UIImage(named: "\(faction.resourcePrefix)_back")!
+        let factionSheetImageController = FlipImageViewerController(faction: faction, firstImage: firstImage, secondImage: secondImage)
         
 //        let factionAspectsController = FactionAspectsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        
-        let techController = TechnologyTableViewController()
-        self.navigationController?.pushViewController(techController, animated: true)
+//
+//        let techController = TechnologyTableViewController()
+        self.navigationController?.pushViewController(factionSheetImageController, animated: true)
     }
 
     /*

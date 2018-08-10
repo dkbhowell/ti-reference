@@ -36,6 +36,7 @@ class TechCardView: UIView {
         let nib = UINib(nibName: "TechCardView", bundle: Bundle(for: TechCardView.self))
         let view = nib.instantiate(withOwner: self, options: nil).first! as! UIView
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.clear
         addSubview(view)
         view.pin(toView: self)
     }
@@ -44,5 +45,25 @@ class TechCardView: UIView {
         titleLabel.text = title
         descriptionLabel.text = cardText
         prereqLabel.text = prereqString
+        layer.cornerRadius = 10
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 0.5
+    }
+}
+
+extension TechCardView {
+    func setAppearance(forTechType type: TechnologyType) {
+        switch type {
+        case .blue:
+            backgroundColor = UIColor.blue.withAlphaComponent(0.5)
+        case .green:
+            backgroundColor = UIColor.green.withAlphaComponent(0.5)
+        case .red:
+            backgroundColor = UIColor.red.withAlphaComponent(0.5)
+        case .yellow:
+            backgroundColor = UIColor.yellow.withAlphaComponent(0.5)
+        case .none:
+            backgroundColor = UIColor.lightGray
+        }
     }
 }

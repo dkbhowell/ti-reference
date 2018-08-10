@@ -21,6 +21,8 @@
 		DA0F0591211E0715004D4B70 /* TechCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F0590211E0715004D4B70 /* TechCardView.swift */; };
 		DA0F0593211E07CD004D4B70 /* TechCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0F0592211E07CD004D4B70 /* TechCardView.xib */; };
 		DA98B24F211E0A9400A776E4 /* TechnologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */; };
+		DA98B251211E10D300A776E4 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B250211E10D300A776E4 /* UIImage+.swift */; };
+		DA98B253211E23CE00A776E4 /* FactionTechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B252211E23CE00A776E4 /* FactionTechViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		DA0F0590211E0715004D4B70 /* TechCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechCardView.swift; sourceTree = "<group>"; };
 		DA0F0592211E07CD004D4B70 /* TechCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TechCardView.xib; sourceTree = "<group>"; };
 		DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyTableViewController.swift; sourceTree = "<group>"; };
+		DA98B250211E10D300A776E4 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		DA98B252211E23CE00A776E4 /* FactionTechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactionTechViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +90,9 @@
 				DA0F057B211D1EC2004D4B70 /* LaunchScreen.storyboard */,
 				DA0F057E211D1EC2004D4B70 /* Info.plist */,
 				DA0F058C211DEE7A004D4B70 /* UIView+.swift */,
+				DA98B250211E10D300A776E4 /* UIImage+.swift */,
 				DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */,
+				DA98B252211E23CE00A776E4 /* FactionTechViewController.swift */,
 			);
 			path = TwilightImperiumReference;
 			sourceTree = "<group>";
@@ -171,6 +177,8 @@
 				DA0F058D211DEE7A004D4B70 /* UIView+.swift in Sources */,
 				DA0F0589211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift in Sources */,
 				DA0F0575211D1EC0004D4B70 /* FlipImageViewerController.swift in Sources */,
+				DA98B251211E10D300A776E4 /* UIImage+.swift in Sources */,
+				DA98B253211E23CE00A776E4 /* FactionTechViewController.swift in Sources */,
 				DA0F058B211DEC50004D4B70 /* FactionAspect.swift in Sources */,
 				DA0F0573211D1EC0004D4B70 /* AppDelegate.swift in Sources */,
 			);
