@@ -136,8 +136,13 @@ class FlipImageViewerController: UIViewController {
     }
     
     @objc private func showFactionTech() {
-        let factionTechController = FactionTechViewController(faction: faction)
-        present(factionTechController, animated: true, completion: nil)
+        
+        let techController = TechnologyTableViewController(withTechnologies: faction.factionTechs + Technology.allGenerics)
+//        let factionTechController = FactionTechViewController(faction: faction)
+        let newNav = UINavigationController(rootViewController: techController)
+        techController.navigationItem.title = "All Techs"
+        newNav.modalPresentationStyle = .overCurrentContext
+        present(newNav, animated: true, completion: nil)
     }
 }
 

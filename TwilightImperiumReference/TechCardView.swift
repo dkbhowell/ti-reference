@@ -55,13 +55,13 @@ extension TechCardView {
     func setAppearance(forTechType type: TechnologyType) {
         switch type {
         case .blue:
-            backgroundColor = UIColor.blue.withAlphaComponent(0.5)
+            backgroundColor = UIColor(red: 0.278, green: 0.561, blue: 0.812, alpha: 1.0)
         case .green:
-            backgroundColor = UIColor.green.withAlphaComponent(0.5)
+            backgroundColor = UIColor(red: 0.375, green: 0.599, blue: 0.499, alpha: 1.0)
         case .red:
-            backgroundColor = UIColor.red.withAlphaComponent(0.5)
+            backgroundColor = UIColor(red: 0.773, green: 0.404, blue: 0.471, alpha: 1.0)
         case .yellow:
-            backgroundColor = UIColor.yellow.withAlphaComponent(0.5)
+            backgroundColor = UIColor(red: 0.925, green: 0.941, blue: 0.643, alpha: 1.0)
         case .none:
             backgroundColor = UIColor.lightGray
         }

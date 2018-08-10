@@ -11,10 +11,21 @@ import UIKit
 class TechnologyTableViewController: UITableViewController {
     let reuseId = "cellReuseId"
     var technologies = Technology.allGenerics
-
+    
+    init(withTechnologies techs: [Technology]) {
+        self.technologies = techs
+        super.init(nibName: nil, bundle: Bundle(for: TechnologyTableViewController.self))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor.clear
+        tableView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        tableView.separatorStyle = .none
         let doneNavButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finish))
         navigationItem.rightBarButtonItem = doneNavButton
         
@@ -50,22 +61,10 @@ class TechnologyTableViewController: UITableViewController {
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         let technology = technologies[indexPath.row]
         let techCard = TechCardView(title: technology.name, cardText: technology.description, prereqString: technology.prereqString)
-        let cardColor: UIColor
-        switch technology.type {
-        case .blue:
-            cardColor = UIColor.blue.withAlphaComponent(0.3)
-        case .yellow:
-            cardColor = UIColor.yellow.withAlphaComponent(0.3)
-        case .green:
-            cardColor = UIColor.green.withAlphaComponent(0.3)
-        case .red:
-            cardColor = UIColor.red.withAlphaComponent(0.3)
-        case .none:
-            cardColor = UIColor.white
-        }
-        techCard.backgroundColor = cardColor
+        techCard.setAppearance(forTechType: technology.type)
+        cell.backgroundColor = UIColor.clear
         cell.contentView.addSubview(techCard)
-        techCard.pin(toView: cell.contentView, withPadding: UIEdgeInsets(top: 2, left: 8, bottom: 2, right: 8))
+        techCard.pin(toView: cell.contentView, withPadding: UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8))
         techCard.layer.cornerRadius = 10
         return cell
     }

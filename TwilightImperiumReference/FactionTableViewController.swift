@@ -23,8 +23,10 @@ class FactionTableViewController: UITableViewController {
     }
     
     @objc private func showGenericTechs() {
-        let techTable = TechnologyTableViewController()
+        let techTable = TechnologyTableViewController(withTechnologies: Technology.allGenerics)
+        techTable.navigationItem.title = "Generic Techs"
         let newNav = UINavigationController(rootViewController: techTable)
+        newNav.modalPresentationStyle = .overCurrentContext
         present(newNav, animated: true, completion: nil)
     }
 
