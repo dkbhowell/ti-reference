@@ -23,6 +23,7 @@
 		DA98B24F211E0A9400A776E4 /* TechnologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */; };
 		DA98B251211E10D300A776E4 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B250211E10D300A776E4 /* UIImage+.swift */; };
 		DA98B253211E23CE00A776E4 /* FactionTechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B252211E23CE00A776E4 /* FactionTechViewController.swift */; };
+		DACDCF14211E4BE900CB49DE /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDCF13211E4BE900CB49DE /* PlayerState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyTableViewController.swift; sourceTree = "<group>"; };
 		DA98B250211E10D300A776E4 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		DA98B252211E23CE00A776E4 /* FactionTechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactionTechViewController.swift; sourceTree = "<group>"; };
+		DACDCF13211E4BE900CB49DE /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				DA0F0584211D51C5004D4B70 /* FactionTableViewController.swift */,
+				DACDCF13211E4BE900CB49DE /* PlayerState.swift */,
 				DA0F0588211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift */,
 				DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */,
 				DA0F0586211D51DC004D4B70 /* Faction.swift */,
@@ -174,6 +177,7 @@
 				DA0F058F211DFA1E004D4B70 /* LabeledImage.swift in Sources */,
 				DA98B24F211E0A9400A776E4 /* TechnologyTableViewController.swift in Sources */,
 				DA0F0585211D51C5004D4B70 /* FactionTableViewController.swift in Sources */,
+				DACDCF14211E4BE900CB49DE /* PlayerState.swift in Sources */,
 				DA0F058D211DEE7A004D4B70 /* UIView+.swift in Sources */,
 				DA0F0589211DEC28004D4B70 /* FactionAspectsCollectionViewController.swift in Sources */,
 				DA0F0575211D1EC0004D4B70 /* FlipImageViewerController.swift in Sources */,

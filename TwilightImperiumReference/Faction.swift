@@ -37,7 +37,7 @@ extension Faction {
     ]
 }
 
-struct Technology {
+struct Technology: Equatable {
     let name: String
     let description: String
     let prerequesite: [TechnologyType]
@@ -59,6 +59,21 @@ struct Technology {
             }
             }.joined()
         return prereqs
+    }
+    
+    func meetsPrereqs(existingTechs techs: [Technology]) -> Bool {
+        var pres = prerequesite
+        for tech in techs {
+            let type = tech.type
+            if let index = pres.firstIndex(where: { $0 == type }) {
+                pres.remove(at: index)
+            }
+        }
+        return pres.isEmpty
+    }
+    
+    static func ==(lhs: Technology, rhs: Technology) -> Bool {
+        return lhs.name == rhs.name
     }
 }
 

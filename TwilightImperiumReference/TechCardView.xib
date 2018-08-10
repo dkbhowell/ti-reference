@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="h2i-Xh-Tdm" id="diy-EK-dqf"/>
                 <outlet property="prereqLabel" destination="4hd-sr-JTf" id="48c-rg-lsK"/>
+                <outlet property="statusIcon" destination="yc1-z3-o8U" id="KHo-Mz-gaA"/>
                 <outlet property="titleLabel" destination="mWN-2i-Jlt" id="h9g-2a-n7C"/>
             </connections>
         </placeholder>
@@ -46,9 +47,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beaker" translatesAutoresizingMaskIntoConstraints="NO" id="yc1-z3-o8U">
+                    <rect key="frame" x="424" y="6" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="9eW-SH-EqO"/>
+                        <constraint firstAttribute="width" secondItem="yc1-z3-o8U" secondAttribute="height" multiplier="1:1" id="mnV-j1-Ilt"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yc1-z3-o8U" secondAttribute="trailing" constant="6" id="GdG-s4-2Ko"/>
                 <constraint firstItem="4hd-sr-JTf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="h2i-Xh-Tdm" secondAttribute="bottom" constant="10" id="HEw-Cw-a1u"/>
                 <constraint firstItem="wL6-hO-g9Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Mv1-sq-0fT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4hd-sr-JTf" secondAttribute="bottom" constant="20" id="X6Q-mK-WGq"/>
@@ -57,6 +66,7 @@
                 <constraint firstItem="h2i-Xh-Tdm" firstAttribute="top" secondItem="wL6-hO-g9Y" secondAttribute="bottom" constant="8" id="dE9-0f-Vjq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wL6-hO-g9Y" secondAttribute="trailing" constant="20" id="fLp-zF-4nB"/>
                 <constraint firstItem="mWN-2i-Jlt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fRU-XN-h0U"/>
+                <constraint firstItem="yc1-z3-o8U" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="fxA-wk-lSn"/>
                 <constraint firstItem="mWN-2i-Jlt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="iHq-pJ-xPc"/>
                 <constraint firstAttribute="trailing" secondItem="h2i-Xh-Tdm" secondAttribute="trailing" constant="20" id="oSJ-1H-zaX"/>
                 <constraint firstItem="wL6-hO-g9Y" firstAttribute="top" secondItem="mWN-2i-Jlt" secondAttribute="bottom" constant="4" id="s2s-V5-WCG"/>
@@ -66,4 +76,7 @@
             <point key="canvasLocation" x="196.80000000000001" y="-56.671664167916049"/>
         </view>
     </objects>
+    <resources>
+        <image name="beaker" width="48" height="48"/>
+    </resources>
 </document>

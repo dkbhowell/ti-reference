@@ -29,9 +29,12 @@ class TechnologyTableViewController: UITableViewController {
         let doneNavButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finish))
         navigationItem.rightBarButtonItem = doneNavButton
         
+        let clearOwnedTechsButton = UIBarButtonItem(title: "clear", style: .plain, target: self, action: #selector(clearOwnedTechs))
+        navigationItem.leftBarButtonItem = clearOwnedTechsButton
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
-        tableView.allowsSelection = false
+//        tableView.allowsSelection = false
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,6 +45,11 @@ class TechnologyTableViewController: UITableViewController {
     
     @objc private func finish() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func clearOwnedTechs() {
+        PlayerState.shared.ownedTechnologies = []
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -66,7 +74,29 @@ class TechnologyTableViewController: UITableViewController {
         cell.contentView.addSubview(techCard)
         techCard.pin(toView: cell.contentView, withPadding: UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8))
         techCard.layer.cornerRadius = 10
+        
+        let ownedTechs = PlayerState.shared.ownedTechnologies
+        if ownedTechs.contains(where: { $0.name == technology.name }) {
+            techCard.setAppearance(forState: .owned)
+        } else if technology.meetsPrereqs(existingTechs: ownedTechs) {
+            techCard.setAppearance(forState: .canResearch)
+        } else {
+            techCard.setAppearance(forState: .cannotResearch)
+        }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let tech = technologies[indexPath.row]
+        let ownedTechs = PlayerState.shared.ownedTechnologies
+        if ownedTechs.contains(tech) {
+            PlayerState.shared.ownedTechnologies = ownedTechs.filter { $0 != tech }
+            tableView.reloadData()
+        } else if tech.meetsPrereqs(existingTechs: ownedTechs) {
+            PlayerState.shared.ownedTechnologies.append(tech)
+            tableView.reloadData()
+        }
     }
  
 

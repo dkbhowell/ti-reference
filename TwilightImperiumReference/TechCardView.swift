@@ -13,6 +13,7 @@ class TechCardView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var prereqLabel: UILabel!
+    @IBOutlet weak var statusIcon: UIImageView!
     
     let title: String
     let cardText: String
@@ -52,6 +53,22 @@ class TechCardView: UIView {
 }
 
 extension TechCardView {
+    
+    enum ResearchState {
+        case owned, canResearch, cannotResearch
+    }
+    
+    func setAppearance(forState state: ResearchState) {
+        switch state {
+        case .owned:
+            statusIcon.image = UIImage(named: "beaker-check")
+        case .canResearch:
+            statusIcon.image = UIImage(named: "beaker")
+        case .cannotResearch:
+            statusIcon.image = UIImage(named: "no_research")
+        }
+    }
+    
     func setAppearance(forTechType type: TechnologyType) {
         switch type {
         case .blue:
