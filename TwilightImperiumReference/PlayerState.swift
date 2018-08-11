@@ -9,8 +9,13 @@
 import UIKit
 
 class PlayerState {
-    
-    static var shared: PlayerState = PlayerState(withOwnedTechs: [])
+    private static let filename = "playerState.txt"
+    static var shared: PlayerState = {
+        if let storedTechs = readFromFile() {
+            return PlayerState(withOwnedTechs: storedTechs)
+        }
+        return PlayerState(withOwnedTechs: [])
+    }()
     
     var ownedTechnologies: [Technology]
     
@@ -38,5 +43,43 @@ class PlayerState {
         let greenCount = types.filter { $0 == .green }.count
         let blueCount = types.filter { $0 == .blue }.count
         return "B\(blueCount)  R\(redCount)  G\(greenCount)  Y\(yellowCount)"
+    }
+    
+    func writeToFile() {
+        guard let encodedData = try? JSONEncoder().encode(ownedTechnologies) else {
+            print("error writing to file")
+            return
+        }
+        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("error fetching directory (for write)")
+            return
+        }
+        let fileURL = dir.appendingPathComponent(PlayerState.filename)
+        do {
+            try encodedData.write(to: fileURL)
+            print("Successfully wrote data to disk")
+        } catch {
+            print("ERROR: \(error.localizedDescription)")
+        }
+    }
+    
+    static func readFromFile() -> [Technology]? {
+        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("error fetching directory (for read)")
+            return nil
+        }
+        let fileURL = dir.appendingPathComponent(filename)
+        guard let data = FileManager.default.contents(atPath: fileURL.path) else {
+            print("Error fetching contents of \(fileURL.path)")
+            return nil
+        }
+        do {
+            let model = try JSONDecoder().decode(Array<Technology>.self, from: data)
+            print("Successfully loaded data from file:\n\(model)")
+            return model
+        }catch {
+            print("ERROR: \(error.localizedDescription)")
+        }
+        return nil
     }
 }

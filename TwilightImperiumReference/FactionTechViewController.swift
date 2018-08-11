@@ -27,9 +27,9 @@ class FactionTechViewController: UIViewController {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         let techs = faction.factionTechs
-        let firstFactionCard = TechCardView(title: techs[0].name, cardText: techs[0].description, prereqString: techs[0].prereqString)
+        let firstFactionCard = TechCardView(title: techs[0].name, cardText: techs[0].cardText, prereqString: techs[0].prereqString)
         firstFactionCard.setAppearance(forTechType: techs[0].type)
-        let secondFactionCard = TechCardView(title: techs[1].name, cardText: techs[1].description, prereqString: techs[1].prereqString)
+        let secondFactionCard = TechCardView(title: techs[1].name, cardText: techs[1].cardText, prereqString: techs[1].prereqString)
         secondFactionCard.setAppearance(forTechType: techs[1].type)
         
         let containerView = UIView()
