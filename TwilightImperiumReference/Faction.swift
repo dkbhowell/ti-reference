@@ -67,8 +67,8 @@ struct Technology: Equatable {
     }
 }
 
-enum TechnologyType {
-    case blue, yellow, red, green, none
+enum TechnologyType: String {
+    case blue = "B", yellow = "Y", red = "R", green = "G", none = "O"
 }
 
 extension Technology {

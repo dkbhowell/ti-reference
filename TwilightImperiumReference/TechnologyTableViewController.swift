@@ -35,7 +35,7 @@ class TechnologyTableViewController: UITableViewController {
         let doneNavButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finish))
         navigationItem.rightBarButtonItem = doneNavButton
         
-        let clearOwnedTechsButton = UIBarButtonItem(title: "clear", style: .plain, target: self, action: #selector(clearOwnedTechs))
+        let clearOwnedTechsButton = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(clearOwnedTechs))
         navigationItem.leftBarButtonItem = clearOwnedTechsButton
         
         tableView.rowHeight = UITableView.automaticDimension
@@ -47,6 +47,7 @@ class TechnologyTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.title = PlayerState.shared.getTechString()
     }
     
     @objc private func finish() {
@@ -60,6 +61,7 @@ class TechnologyTableViewController: UITableViewController {
             PlayerState.shared.ownedTechnologies = []
         }
         tableView.reloadData()
+        navigationItem.title = PlayerState.shared.getTechString()
     }
 
     // MARK: - Table view data source
@@ -107,6 +109,7 @@ class TechnologyTableViewController: UITableViewController {
             PlayerState.shared.ownedTechnologies.append(tech)
             tableView.reloadData()
         }
+        navigationItem.title = PlayerState.shared.getTechString()
     }
  
 

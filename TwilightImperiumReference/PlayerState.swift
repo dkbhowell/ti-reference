@@ -28,4 +28,15 @@ class PlayerState {
         }
         return pres.isEmpty
     }
+    
+    func getTechString() -> String {
+        let types = ownedTechnologies.map { $0.type }
+        let redCount = types.reduce(0) { (result, nextType) -> Int in
+            return nextType == .red ? result + 1 : result
+        }
+        let yellowCount = types.reduce(0) { return $1 == .yellow ? $0 + 1 : $0 }
+        let greenCount = types.filter { $0 == .green }.count
+        let blueCount = types.filter { $0 == .blue }.count
+        return "B\(blueCount)  R\(redCount)  G\(greenCount)  Y\(yellowCount)"
+    }
 }
