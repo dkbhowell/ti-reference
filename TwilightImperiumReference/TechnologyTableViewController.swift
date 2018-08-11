@@ -88,7 +88,7 @@ class TechnologyTableViewController: UITableViewController {
         let ownedTechs = PlayerState.shared.ownedTechnologies
         if ownedTechs.contains(where: { $0.name == technology.name }) {
             techCard.setAppearance(forState: .owned)
-        } else if technology.meetsPrereqs(existingTechs: ownedTechs) {
+        } else if PlayerState.shared.meetsPrerequisites(forTech: technology) {
             techCard.setAppearance(forState: .canResearch)
         } else {
             techCard.setAppearance(forState: .cannotResearch)
@@ -103,7 +103,7 @@ class TechnologyTableViewController: UITableViewController {
         if ownedTechs.contains(tech) {
             PlayerState.shared.ownedTechnologies = ownedTechs.filter { $0 != tech }
             tableView.reloadData()
-        } else if tech.meetsPrereqs(existingTechs: ownedTechs) {
+        } else if PlayerState.shared.meetsPrerequisites(forTech: tech) {
             PlayerState.shared.ownedTechnologies.append(tech)
             tableView.reloadData()
         }

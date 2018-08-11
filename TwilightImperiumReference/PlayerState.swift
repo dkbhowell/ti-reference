@@ -17,4 +17,15 @@ class PlayerState {
     init(withOwnedTechs techs: [Technology]) {
         self.ownedTechnologies = techs
     }
+    
+    func meetsPrerequisites(forTech tech: Technology) -> Bool {
+        var pres = tech.prerequesite
+        for tech in ownedTechnologies {
+            let type = tech.type
+            if let index = pres.firstIndex(where: { $0 == type }) {
+                pres.remove(at: index)
+            }
+        }
+        return pres.isEmpty
+    }
 }

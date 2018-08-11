@@ -80,7 +80,7 @@ extension TechCardView {
         case .yellow:
             backgroundColor = UIColor(red: 0.925, green: 0.941, blue: 0.643, alpha: 1.0)
         case .none:
-            backgroundColor = UIColor.lightGray
+            backgroundColor = UIColor(red: 0.886, green: 0.875, blue: 0.875, alpha: 1.0)
         }
     }
 }
