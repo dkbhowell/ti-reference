@@ -120,8 +120,20 @@ class FlipImageViewerController: UIViewController {
         let bottomSheet = FactionBottomSheetViewController(faction: faction)
         factionBottomSheet = bottomSheet
         addChild(bottomSheet)
-        bottomSheet.view.frame = CGRect(x: 0, y: view.bounds.maxY, width: view.bounds.width, height: view.bounds.height * 2)
+        // Add View
+//        bottomSheet.view.frame = CGRect(x: 0, y: view.bounds.maxY, width: view.bounds.width, height: view.bounds.height)
+        bottomSheet.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bottomSheet.view)
+        bottomSheet.hiddenConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.bottomAnchor)
+        bottomSheet.compactConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -200)
+        bottomSheet.expandedConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        NSLayoutConstraint.activate([
+            bottomSheet.view.widthAnchor.constraint(equalTo: view.widthAnchor),
+            bottomSheet.view.heightAnchor.constraint(equalTo: view.heightAnchor),
+            bottomSheet.hiddenConstraint,
+            bottomSheet.view.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+        view.layoutIfNeeded()
         bottomSheet.didMove(toParent: self)
     }
     

@@ -49,7 +49,6 @@ class FactionTableViewController: UITableViewController {
             let factions = jsonResult.factions
             self.factions = factions
             tableView.reloadData()
-            print("Gotcha factions: \(factions)")
         } catch {
             print("Error: \(error)")
             fatalError("Failed to Load Technologies Data: \(error)")
