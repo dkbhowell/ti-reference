@@ -34,9 +34,9 @@ class AbilityView: UIView {
     private func commonInit() {
         layer.cornerRadius = 10
         clipsToBounds = true
-        backgroundColor = UIColor.clear
         let nib = UINib(nibName: "AbilityView", bundle: Bundle(for: AbilityView.self))
         let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        nibView.backgroundColor = UIColor.clear
         nibView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nibView)
         nibView.pin(toView: self)

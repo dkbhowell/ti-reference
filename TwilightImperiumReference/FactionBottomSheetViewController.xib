@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="abilityStack" destination="Jca-9R-by1" id="LQC-I7-UIj"/>
                 <outlet property="quoteLabel" destination="fsB-me-bbE" id="lNc-bw-eUT"/>
+                <outlet property="quoteLabelContainer" destination="geT-ev-yRh" id="Mnn-k2-zFb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,22 +22,34 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-me-bbE">
-                    <rect key="frame" x="8" y="28" width="359" height="81.5"/>
-                    <string key="text">We cannot halt progress for the sake of morality. If you have not the stomach for science, then I suggest you depart Wun-Escha immediately. -Doctor Sucaban</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geT-ev-yRh">
+                    <rect key="frame" x="8" y="8" width="359" height="97.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-me-bbE">
+                            <rect key="frame" x="8" y="8" width="343" height="81.5"/>
+                            <string key="text">We cannot halt progress for the sake of morality. If you have not the stomach for science, then I suggest you depart Wun-Escha immediately. -Doctor Sucaban</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="fsB-me-bbE" secondAttribute="bottom" constant="8" id="Zic-59-3dm"/>
+                        <constraint firstItem="fsB-me-bbE" firstAttribute="top" secondItem="geT-ev-yRh" secondAttribute="top" constant="8" id="bZH-VP-KOW"/>
+                        <constraint firstItem="fsB-me-bbE" firstAttribute="leading" secondItem="geT-ev-yRh" secondAttribute="leading" constant="8" id="uZi-I1-VrH"/>
+                        <constraint firstAttribute="trailing" secondItem="fsB-me-bbE" secondAttribute="trailing" constant="8" id="zOA-VW-wAa"/>
+                    </constraints>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-9R-by1">
-                    <rect key="frame" x="8" y="117.5" width="359" height="179"/>
+                    <rect key="frame" x="8" y="117.5" width="359" height="260"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22r-tD-TOP" customClass="AbilityView" customModule="TwilightImperiumReference" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="85.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="126"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcc-ty-eo8" customClass="AbilityView" customModule="TwilightImperiumReference" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="93.5" width="359" height="85.5"/>
+                            <rect key="frame" x="0.0" y="134" width="359" height="126"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
@@ -45,11 +58,11 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Jca-9R-by1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="3zc-Gj-G76"/>
-                <constraint firstAttribute="trailing" secondItem="fsB-me-bbE" secondAttribute="trailing" constant="8" id="EN0-6k-jBb"/>
-                <constraint firstItem="fsB-me-bbE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="ULT-1T-VHe"/>
+                <constraint firstItem="Jca-9R-by1" firstAttribute="top" secondItem="geT-ev-yRh" secondAttribute="bottom" constant="12" id="FrF-Qt-IRI"/>
+                <constraint firstAttribute="trailing" secondItem="geT-ev-yRh" secondAttribute="trailing" constant="8" id="V49-qV-JbW"/>
                 <constraint firstAttribute="trailing" secondItem="Jca-9R-by1" secondAttribute="trailing" constant="8" id="WmZ-KE-3c3"/>
-                <constraint firstItem="fsB-me-bbE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="g9O-RG-zCM"/>
-                <constraint firstItem="Jca-9R-by1" firstAttribute="top" secondItem="fsB-me-bbE" secondAttribute="bottom" constant="8" id="nv7-Jp-roA"/>
+                <constraint firstItem="geT-ev-yRh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Y6E-Yb-v3Y"/>
+                <constraint firstItem="geT-ev-yRh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="h0R-jv-Q4u"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>

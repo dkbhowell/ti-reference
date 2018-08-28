@@ -11,6 +11,7 @@ import UIKit
 class FactionBottomSheetViewController: UIViewController {
     
     // MARK: Outlets
+    @IBOutlet weak var quoteLabelContainer: UIView!
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var abilityStack: UIStackView!
     
@@ -45,9 +46,15 @@ class FactionBottomSheetViewController: UIViewController {
         quoteLabel.text = faction.quote
         for ability in faction.abilities {
             let abilityView = AbilityView(name: ability.name, description: ability.description)
-//            abilityView.invalidateIntrinsicContentSize()
+            abilityView.backgroundColor = UIColor.white.withAlphaComponent(0.45)
             abilityStack.addArrangedSubview(abilityView)
         }
+        quoteLabelContainer.backgroundColor = UIColor.white.withAlphaComponent(0.45)
+        quoteLabelContainer.layer.cornerRadius = 10
+        
+        // add pan gesture recognizer
+        let panRec = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
+        view.addGestureRecognizer(panRec)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +64,17 @@ class FactionBottomSheetViewController: UIViewController {
             let yComponent = UIScreen.main.bounds.height - 300
             self?.view.frame = CGRect(x: 0, y: yComponent, width: frame.width, height: frame.height)
         }
+    }
+    
+    @objc private func panGestureRecognized(gestureRecognizer: UIPanGestureRecognizer) {
+        
+        let translation = gestureRecognizer.translation(in: self.view)
+        let y = self.view.frame.minY
+        let newFrame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
+        if newFrame.minY >= 0 {
+            self.view.frame = newFrame
+        }
+        gestureRecognizer.setTranslation(.zero, in: self.view)
     }
 
 }
