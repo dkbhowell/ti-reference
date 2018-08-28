@@ -11,7 +11,7 @@ import UIKit
 class FactionTableViewController: UITableViewController {
     let reuseId = "factionCellReuseId"
     
-    var factions = Faction.factions.sorted { $0.deviation > $1.deviation }
+    var factions = [Faction]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,40 @@ class FactionTableViewController: UITableViewController {
         let allTechBarButtonItem = UIBarButtonItem(image: allTechIcon, style: .plain, target: self, action: #selector(showGenericTechs))
         navigationItem.rightBarButtonItem = allTechBarButtonItem
         navigationItem.title = "TI4 Factions"
+        
+        // test loading techs
+        loadFactions()
+    }
+    
+    private func loadTechs() {
+        guard let path = Bundle(for: FactionTableViewController.self).path(forResource: "ti_generic_tech", ofType: "json") else {
+            return
+        }
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+            let jsonResult = try JSONDecoder().decode(TechnologyData.self, from: data)
+            let techs = jsonResult.generic_technologies
+            print("Gotcha techs: \(techs)")
+        } catch {
+            fatalError("Failed to Load Technologies Data")
+        }
+    }
+    
+    private func loadFactions() {
+        guard let path = Bundle(for: FactionTableViewController.self).path(forResource: "ti_factions", ofType: "json") else {
+            return
+        }
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+            let jsonResult = try JSONDecoder().decode(FactionData.self, from: data)
+            let factions = jsonResult.factions
+            self.factions = factions
+            tableView.reloadData()
+            print("Gotcha factions: \(factions)")
+        } catch {
+            print("Error: \(error)")
+            fatalError("Failed to Load Technologies Data: \(error)")
+        }
     }
     
     @objc private func showGenericTechs() {

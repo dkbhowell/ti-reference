@@ -80,7 +80,7 @@ class TechnologyTableViewController: UITableViewController {
 
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         let technology = technologies[indexPath.row]
-        let techCard = TechCardView(title: technology.name, cardText: technology.cardText, prereqString: technology.prereqString)
+        let techCard = TechCardView(title: technology.name, cardText: technology.description, prereqString: technology.prereqString)
         techCard.setAppearance(forTechType: technology.type)
         cell.backgroundColor = UIColor.clear
         cell.contentView.addSubview(techCard)

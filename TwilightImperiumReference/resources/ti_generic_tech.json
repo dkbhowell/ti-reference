@@ -1,0 +1,116 @@
+{
+    "generic_technologies" : [
+        {
+            "id": "b0",
+            "name": "Anti-Mass Deflectors",
+            "description": "Your ships can move into and through asteroid fields.\n\nWhen other players' units use SPACE CANNON against your units, apply -1 to the result of each die roll.",
+            "type": "B",
+            "prerequisites": []
+        },
+        {
+            "id": "b1",
+            "name": "Gravity Drive",
+            "description": "After you activate a system, apply +1 to the move value of 1 of your ships during this tactical action.",
+            "type": "B",
+            "prerequisites": ["B"]
+        },
+        {
+            "id": "b2",
+            "name": "Fleet Logistics",
+            "description": "During each of your turns of the action phase, you may perform 2 actions instead of 1.",
+            "type": "B",
+            "prerequisites": ["B", "B"]
+        },
+        {
+            "id": "b3",
+            "name": "Light/Wave Deflector",
+            "description": "Your ships can move through systems that contain other players ships",
+            "type": "B",
+            "prerequisites": ["B", "B", "B"]
+        },
+        {
+            "id": "g0",
+            "name": "Neural Motivator",
+            "description": "During the status phase, draw 2 action cards instead of 1.",
+            "type": "G",
+            "prerequisites": []
+        },
+        {
+            "id": "g1",
+            "name": "Dacxive Animators",
+            "description": "After you win a ground combat, you may place 1 infantry from your reinforcements on that planet.",
+            "type": "G",
+            "prerequisites": ["G"]
+        },
+        {
+            "id": "g2",
+            "name": "Hyper-Metabolism",
+            "description": "During the status phase, gain 3 command tokens instead of 2",
+            "type": "G",
+            "prerequisites": ["G", "G"]
+        },
+        {
+            "id": "g3",
+            "name": "X-89 Bacterial Weapon",
+            "description": "ACTION: Exhaust this card and choose 1 planet in a system that contains 1 or more of your ships that have BOMBARDMENT; destroy all infantry on that planet",
+            "type": "G",
+            "prerequisites": ["G", "G", "G"]
+        },
+        {
+            "id": "y0",
+            "name": "Sarween Tools",
+            "description": "When 1 or more of your units use production, reduce the combined cost of the produced units by 1.",
+            "type": "Y",
+            "prerequisites": []
+        },
+        {
+            "id": "y1",
+            "name": "Graviton Laser System",
+            "description": "You may exhaust this card before 1 or more of your units use SPACE CANNON; hits produced by those units must be assigned to non-fighter ships if able",
+            "type": "Y",
+            "prerequisites": ["Y"]
+        },
+        {
+            "id": "y2",
+            "name": "Transit Diodes",
+            "description": "You may exhaust this card at the start of your turn during the action phase; remove up to 4 of your ground forces from the game board and place them on 1 or more planets you control.",
+            "type": "Y",
+            "prerequisites": ["Y", "Y"]
+        },
+        {
+            "id": "y3",
+            "name": "Integrated Economy",
+            "description": "After you gain control of a planet, you may produce any number of units on that planet that have a combined cost equal to or less than that planet's resource value",
+            "type": "Y",
+            "prerequisites": ["Y", "Y", "Y"]
+        },
+        {
+            "id": "r0",
+            "name": "Plasma Scoring",
+            "description": "When 1 or more of your units use BOMBARDMENT or SPACE CANNON, 1 of those units may roll 1 additional die.",
+            "type": "R",
+            "prerequisites": []
+        },
+        {
+            "id": "r1",
+            "name": "Magen Defense Grid",
+            "description": "You may exhaust this card at the start of a round of ground combat on a planet that contains 1 or more of your units that have PLANETARY SHIELD; your opponent cannon make combat rolls during this combat round.",
+            "type": "R",
+            "prerequisites": ["R"]
+        },
+        {
+            "id": "r2",
+            "name": "Duranium Armor",
+            "description": "During each combat round, after you assign hits to your units, repair 1 of your damaged units that did not use SUSTAIN DAMAGE during this combat round.",
+            "type": "R",
+            "prerequisites": ["R", "R"]
+        },
+        {
+            "id": "r3",
+            "name": "Assault Cannon",
+            "description": "At the start of a space combat in a system that contains 3 or more of your non-fighter ships, your opponent must destroy 1 of his non-fighter ships",
+            "type": "R",
+            "prerequisites": ["R", "R", "R"]
+        }
+    ]
+}

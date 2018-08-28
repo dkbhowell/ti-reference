@@ -18,6 +18,7 @@ class FlipImageViewerController: UIViewController {
     let firstImage: UIImage
     let secondImage: UIImage
     let faction: Faction
+    weak var factionBottomSheet: FactionBottomSheetViewController?
     
     let flipSpeed = 0.75
     
@@ -105,13 +106,23 @@ class FlipImageViewerController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        // add bottom sheet
+        addBottomSheet()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let shiftHeight = (scrollView.frame.height/2.0) - (view.frame.width/2.0)
         scrollView.contentInset.top = shiftHeight
+    }
+    
+    private func addBottomSheet() {
+        let bottomSheet = FactionBottomSheetViewController(faction: faction)
+        factionBottomSheet = bottomSheet
+        addChild(bottomSheet)
+        bottomSheet.view.frame = CGRect(x: 0, y: view.bounds.maxY, width: view.bounds.width, height: view.bounds.height)
+        view.addSubview(bottomSheet.view)
+        bottomSheet.didMove(toParent: self)
     }
     
     @objc func flipImage() {

@@ -24,7 +24,7 @@ class PlayerState {
     }
     
     func meetsPrerequisites(forTech tech: Technology) -> Bool {
-        var pres = tech.prerequesite
+        var pres = tech.prerequisites
         for tech in ownedTechnologies {
             let type = tech.type
             if let index = pres.firstIndex(where: { $0 == type }) {
