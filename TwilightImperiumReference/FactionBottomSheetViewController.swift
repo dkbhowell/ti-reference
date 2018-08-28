@@ -14,6 +14,8 @@ class FactionBottomSheetViewController: UIViewController {
     @IBOutlet weak var quoteLabelContainer: UIView!
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var abilityStack: UIStackView!
+    @IBOutlet weak var panIndicator: UIView!
+    @IBOutlet weak var factionTechStack: UIStackView!
     
     // MARK: Properties
     let faction: Faction
@@ -35,6 +37,7 @@ class FactionBottomSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // prepare background
+        panIndicator.layer.cornerRadius = 4
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
         view.backgroundColor = UIColor.clear
@@ -48,6 +51,13 @@ class FactionBottomSheetViewController: UIViewController {
             let abilityView = AbilityView(name: ability.name, description: ability.description)
             abilityView.backgroundColor = UIColor.white.withAlphaComponent(0.45)
             abilityStack.addArrangedSubview(abilityView)
+        }
+        
+        factionTechStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        for facTech in faction.factionTechs {
+            let techCard = TechCardView(title: facTech.name, cardText: facTech.description, prereqString: facTech.prereqString)
+            techCard.setAppearance(forTechType: facTech.type)
+            factionTechStack.addArrangedSubview(techCard)
         }
         quoteLabelContainer.backgroundColor = UIColor.white.withAlphaComponent(0.45)
         quoteLabelContainer.layer.cornerRadius = 10

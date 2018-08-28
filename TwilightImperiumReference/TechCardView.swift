@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class TechCardView: UIView {
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -15,22 +16,22 @@ class TechCardView: UIView {
     @IBOutlet weak var prereqLabel: UILabel!
     @IBOutlet weak var statusIcon: UIImageView!
     
-    let title: String
-    let cardText: String
-    let prereqString: String
-    
-    init(title: String, cardText: String, prereqString: String) {
-        self.title = title
-        self.cardText = cardText
-        self.prereqString = prereqString
-        super.init(frame: .zero)
+    convenience init(title: String, cardText: String, prereqString: String) {
+        self.init(frame: .zero)
+        initContent(title: title, description: cardText, prereq: prereqString)
         translatesAutoresizingMaskIntoConstraints = false
+        
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
-        initViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        commonInit()
+        
     }
     
     private func commonInit() {
@@ -40,15 +41,21 @@ class TechCardView: UIView {
         view.backgroundColor = UIColor.clear
         addSubview(view)
         view.pin(toView: self)
-    }
-    
-    private func initViews() {
-        titleLabel.text = title
-        descriptionLabel.text = cardText
-        prereqLabel.text = prereqString
         layer.cornerRadius = 10
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 0.5
+    }
+    
+    private func initContent(title: String, description: String, prereq: String) {
+        titleLabel.text = title
+        descriptionLabel.text = description
+        prereqLabel.text = prereq
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let width = descriptionLabel.bounds.width + 16
+        let height: CGFloat = titleLabel.bounds.height + descriptionLabel.bounds.height  + prereqLabel.bounds.height  + CGFloat(integerLiteral: 40)
+        return CGSize(width: width, height: height)
     }
 }
 

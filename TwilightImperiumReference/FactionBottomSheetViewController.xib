@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FactionBottomSheetViewController" customModule="TwilightImperiumReference" customModuleProvider="target">
             <connections>
                 <outlet property="abilityStack" destination="Jca-9R-by1" id="LQC-I7-UIj"/>
+                <outlet property="factionTechStack" destination="NFR-gD-eBX" id="kqb-tI-41F"/>
+                <outlet property="panIndicator" destination="x3e-lq-KzR" id="Gcn-TR-6iw"/>
                 <outlet property="quoteLabel" destination="fsB-me-bbE" id="lNc-bw-eUT"/>
                 <outlet property="quoteLabelContainer" destination="geT-ev-yRh" id="Mnn-k2-zFb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,16 +21,24 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1386"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3e-lq-KzR">
+                    <rect key="frame" x="147.5" y="28" width="80" height="8"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="44U-dT-lee"/>
+                        <constraint firstAttribute="height" constant="8" id="wMQ-Yt-Xh4"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geT-ev-yRh">
-                    <rect key="frame" x="8" y="8" width="359" height="97.5"/>
+                    <rect key="frame" x="8" y="44" width="359" height="97.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-me-bbE">
                             <rect key="frame" x="8" y="8" width="343" height="81.5"/>
                             <string key="text">We cannot halt progress for the sake of morality. If you have not the stomach for science, then I suggest you depart Wun-Escha immediately. -Doctor Sucaban</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -42,14 +52,27 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-9R-by1">
-                    <rect key="frame" x="8" y="117.5" width="359" height="260"/>
+                    <rect key="frame" x="8" y="153.5" width="359" height="252"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22r-tD-TOP" customClass="AbilityView" customModule="TwilightImperiumReference" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="126"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="122"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcc-ty-eo8" customClass="AbilityView" customModule="TwilightImperiumReference" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="134" width="359" height="126"/>
+                            <rect key="frame" x="0.0" y="130" width="359" height="122"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-gD-eBX">
+                    <rect key="frame" x="8" y="413.5" width="359" height="347"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEW-rz-CWg" customClass="TechCardView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="169.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2G-cY-b2J" customClass="TechCardView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="177.5" width="359" height="169.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
@@ -57,15 +80,21 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="x3e-lq-KzR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="3rD-WS-PiD"/>
                 <constraint firstItem="Jca-9R-by1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="3zc-Gj-G76"/>
-                <constraint firstItem="Jca-9R-by1" firstAttribute="top" secondItem="geT-ev-yRh" secondAttribute="bottom" constant="12" id="FrF-Qt-IRI"/>
+                <constraint firstItem="Jca-9R-by1" firstAttribute="top" secondItem="geT-ev-yRh" secondAttribute="bottom" constant="12" id="9X0-7N-hOg"/>
+                <constraint firstItem="NFR-gD-eBX" firstAttribute="top" secondItem="Jca-9R-by1" secondAttribute="bottom" constant="8" id="C8M-37-d2R"/>
+                <constraint firstItem="x3e-lq-KzR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LXf-GF-oRH"/>
                 <constraint firstAttribute="trailing" secondItem="geT-ev-yRh" secondAttribute="trailing" constant="8" id="V49-qV-JbW"/>
                 <constraint firstAttribute="trailing" secondItem="Jca-9R-by1" secondAttribute="trailing" constant="8" id="WmZ-KE-3c3"/>
-                <constraint firstItem="geT-ev-yRh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Y6E-Yb-v3Y"/>
+                <constraint firstItem="NFR-gD-eBX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="XYw-Dw-4J5"/>
                 <constraint firstItem="geT-ev-yRh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="h0R-jv-Q4u"/>
+                <constraint firstItem="geT-ev-yRh" firstAttribute="top" secondItem="x3e-lq-KzR" secondAttribute="bottom" constant="8" id="kVS-ZP-HHC"/>
+                <constraint firstAttribute="trailing" secondItem="NFR-gD-eBX" secondAttribute="trailing" constant="8" id="nJc-U9-Wef"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
+            <point key="canvasLocation" x="53.600000000000001" y="371.51424287856076"/>
         </view>
     </objects>
 </document>

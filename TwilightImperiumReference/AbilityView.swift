@@ -44,7 +44,7 @@ class AbilityView: UIView {
     
     override var intrinsicContentSize: CGSize {
         let width: CGFloat = max(nameLabel.bounds.width, descriptionLabel.bounds.width)
-        let height: CGFloat = nameLabel.bounds.height + descriptionLabel.bounds.height + 24
+        let height: CGFloat = nameLabel.bounds.height + descriptionLabel.bounds.height + 20
         return CGSize(width: width, height: height)
     }
 
