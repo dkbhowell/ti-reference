@@ -27,9 +27,11 @@
 		DA54E5B221348DAF000A6041 /* AbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA54E5B121348DAF000A6041 /* AbilityView.swift */; };
 		DA54E5B421348DB7000A6041 /* AbilityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA54E5B321348DB7000A6041 /* AbilityView.xib */; };
 		DA57BE78213109CC00609A99 /* Technology.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57BE77213109CC00609A99 /* Technology.swift */; };
+		DA79E9342134DBE60098E9B7 /* FlagshipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA79E9332134DBE60098E9B7 /* FlagshipView.xib */; };
 		DA98B24F211E0A9400A776E4 /* TechnologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */; };
 		DA98B251211E10D300A776E4 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B250211E10D300A776E4 /* UIImage+.swift */; };
 		DA98B253211E23CE00A776E4 /* FactionTechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98B252211E23CE00A776E4 /* FactionTechViewController.swift */; };
+		DABE61242134E3A900514825 /* FlagshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABE61232134E3A900514825 /* FlagshipView.swift */; };
 		DACDCF14211E4BE900CB49DE /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDCF13211E4BE900CB49DE /* PlayerState.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,9 +58,11 @@
 		DA54E5B121348DAF000A6041 /* AbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityView.swift; sourceTree = "<group>"; };
 		DA54E5B321348DB7000A6041 /* AbilityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AbilityView.xib; sourceTree = "<group>"; };
 		DA57BE77213109CC00609A99 /* Technology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technology.swift; sourceTree = "<group>"; };
+		DA79E9332134DBE60098E9B7 /* FlagshipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlagshipView.xib; sourceTree = "<group>"; };
 		DA98B24E211E0A9400A776E4 /* TechnologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyTableViewController.swift; sourceTree = "<group>"; };
 		DA98B250211E10D300A776E4 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		DA98B252211E23CE00A776E4 /* FactionTechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactionTechViewController.swift; sourceTree = "<group>"; };
+		DABE61232134E3A900514825 /* FlagshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagshipView.swift; sourceTree = "<group>"; };
 		DACDCF13211E4BE900CB49DE /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,8 @@
 				DA54E5AA213480F7000A6041 /* FactionBottomSheetViewController.xib */,
 				DA54E5B121348DAF000A6041 /* AbilityView.swift */,
 				DA54E5B321348DB7000A6041 /* AbilityView.xib */,
+				DA79E9332134DBE60098E9B7 /* FlagshipView.xib */,
+				DABE61232134E3A900514825 /* FlagshipView.swift */,
 				DACDCF13211E4BE900CB49DE /* PlayerState.swift */,
 				DA0F058E211DFA1E004D4B70 /* LabeledImage.swift */,
 				DA0F058A211DEC50004D4B70 /* FactionAspect.swift */,
@@ -201,6 +207,7 @@
 				DA0F057A211D1EC2004D4B70 /* Assets.xcassets in Resources */,
 				DA54E5AF21348B98000A6041 /* ti_factions.json in Resources */,
 				DA0F0593211E07CD004D4B70 /* TechCardView.xib in Resources */,
+				DA79E9342134DBE60098E9B7 /* FlagshipView.xib in Resources */,
 				DA0F0578211D1EC0004D4B70 /* Main.storyboard in Resources */,
 				DA54E5B021348B98000A6041 /* ti_generic_tech.json in Resources */,
 			);
@@ -218,6 +225,7 @@
 				DA0F058F211DFA1E004D4B70 /* LabeledImage.swift in Sources */,
 				DA57BE78213109CC00609A99 /* Technology.swift in Sources */,
 				DA98B24F211E0A9400A776E4 /* TechnologyTableViewController.swift in Sources */,
+				DABE61242134E3A900514825 /* FlagshipView.swift in Sources */,
 				DA54E5B221348DAF000A6041 /* AbilityView.swift in Sources */,
 				DA0F0585211D51C5004D4B70 /* FactionTableViewController.swift in Sources */,
 				DACDCF14211E4BE900CB49DE /* PlayerState.swift in Sources */,

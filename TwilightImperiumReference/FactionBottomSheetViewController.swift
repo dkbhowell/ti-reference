@@ -81,9 +81,10 @@ class FactionBottomSheetViewController: UIViewController {
         let translation = gestureRecognizer.translation(in: self.view)
         let y = self.view.frame.minY
         let newFrame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
-        if newFrame.minY >= 0 {
-            self.view.frame = newFrame
-        }
+//        if newFrame.minY >= 0 {
+//            self.view.frame = newFrame
+//        }
+        self.view.frame = newFrame
         gestureRecognizer.setTranslation(.zero, in: self.view)
     }
 

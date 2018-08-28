@@ -77,18 +77,28 @@
                         </view>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POu-Ht-WAh" customClass="FlagshipView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                    <rect key="frame" x="8" y="768.5" width="359" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="KzY-OZ-B7r"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="x3e-lq-KzR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="3rD-WS-PiD"/>
                 <constraint firstItem="Jca-9R-by1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="3zc-Gj-G76"/>
                 <constraint firstItem="Jca-9R-by1" firstAttribute="top" secondItem="geT-ev-yRh" secondAttribute="bottom" constant="12" id="9X0-7N-hOg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="POu-Ht-WAh" secondAttribute="trailing" constant="8" id="9rL-Va-i74"/>
                 <constraint firstItem="NFR-gD-eBX" firstAttribute="top" secondItem="Jca-9R-by1" secondAttribute="bottom" constant="8" id="C8M-37-d2R"/>
+                <constraint firstItem="POu-Ht-WAh" firstAttribute="top" secondItem="NFR-gD-eBX" secondAttribute="bottom" constant="8" id="DX6-qh-Bn0"/>
                 <constraint firstItem="x3e-lq-KzR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LXf-GF-oRH"/>
                 <constraint firstAttribute="trailing" secondItem="geT-ev-yRh" secondAttribute="trailing" constant="8" id="V49-qV-JbW"/>
                 <constraint firstAttribute="trailing" secondItem="Jca-9R-by1" secondAttribute="trailing" constant="8" id="WmZ-KE-3c3"/>
                 <constraint firstItem="NFR-gD-eBX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="XYw-Dw-4J5"/>
                 <constraint firstItem="geT-ev-yRh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="h0R-jv-Q4u"/>
+                <constraint firstItem="POu-Ht-WAh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="jOT-qM-yo7"/>
                 <constraint firstItem="geT-ev-yRh" firstAttribute="top" secondItem="x3e-lq-KzR" secondAttribute="bottom" constant="8" id="kVS-ZP-HHC"/>
                 <constraint firstAttribute="trailing" secondItem="NFR-gD-eBX" secondAttribute="trailing" constant="8" id="nJc-U9-Wef"/>
             </constraints>

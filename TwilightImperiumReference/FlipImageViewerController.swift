@@ -120,7 +120,7 @@ class FlipImageViewerController: UIViewController {
         let bottomSheet = FactionBottomSheetViewController(faction: faction)
         factionBottomSheet = bottomSheet
         addChild(bottomSheet)
-        bottomSheet.view.frame = CGRect(x: 0, y: view.bounds.maxY, width: view.bounds.width, height: view.bounds.height)
+        bottomSheet.view.frame = CGRect(x: 0, y: view.bounds.maxY, width: view.bounds.width, height: view.bounds.height * 2)
         view.addSubview(bottomSheet.view)
         bottomSheet.didMove(toParent: self)
     }
