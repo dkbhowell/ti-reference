@@ -25,6 +25,13 @@ class FactionBottomSheetViewController: UIViewController {
     var hiddenConstraint: NSLayoutConstraint!
     var compactConstraint: NSLayoutConstraint!
     var expandedConstraint: NSLayoutConstraint!
+    var peekingConstraint: NSLayoutConstraint!
+    
+    var position: SheetPosition = .compact {
+        didSet {
+            moveSheet(to: position)
+        }
+    }
     
     init(faction: Faction) {
         self.faction = faction
@@ -87,39 +94,63 @@ class FactionBottomSheetViewController: UIViewController {
         moveSheet(to: .compact)
     }
     
+
     @objc private func panGestureRecognized(gestureRecognizer: UIPanGestureRecognizer) {
 //        print("panGestureRecognized")
         let translation = gestureRecognizer.translation(in: self.view)
         let y = self.view.frame.minY
         let newy = y + translation.y < 100 ? 100 : y + translation.y
-        print("First Run: y is \(y); newY is \(newy)")
         let newFrame = CGRect(x: 0, y: newy, width: view.frame.width, height: view.frame.height)
         self.view.frame = newFrame
         gestureRecognizer.setTranslation(.zero, in: self.view)
 
-        
         if gestureRecognizer.state == .ended {
             print("Gesture ended")
-            if let superView = view.superview { superView.setNeedsLayout() }
-            let newPosition = findClosestPosition(newY: newy)
-            moveSheet(to: newPosition)
+            guard let superView = view.superview else { return }
+            superView.setNeedsLayout()
+            let velocity = gestureRecognizer.velocity(in: superView)
+            print("Velocity of pan: \(velocity)")
+            let newPosition = abs(velocity.y) > 100 ? findNextPosition(startingPosition: position, velocity: velocity) : findClosestPosition(newY: newy)
+            position = newPosition
         }
     }
     
+    private func findNextPosition(startingPosition: SheetPosition, velocity: CGPoint) -> SheetPosition {
+        let next = velocity.y > 0 ? startingPosition.down() : startingPosition.up()
+        let minPosition: SheetPosition = .compact
+        return next.rawValue < minPosition.rawValue ? minPosition : next
+    }
+    
     private func findClosestPosition(newY: CGFloat) -> SheetPosition {
+        guard let superViewHeight = view.superview?.frame.height else { return .peeking }
+        let expandedRange = 0..<(superViewHeight * 1 / 2)
+        let compactRange = expandedRange.upperBound..<(superViewHeight * 4 / 5)
+        let peekingRange = compactRange.upperBound..<superViewHeight
+        
         switch newY {
-        case 0...300:
+        case expandedRange:
             return .expanded
-        default:
+        case compactRange:
             return .compact
+        case peekingRange:
+            return .compact
+        default:
+            return .peeking
         }
     }
 
 }
 
 extension FactionBottomSheetViewController {
-    enum SheetPosition {
-        case hidden, compact, expanded
+    enum SheetPosition: Int {
+        case hidden, peeking, compact, expanded
+        
+        func up() -> SheetPosition {
+            return SheetPosition(rawValue: rawValue + 1) ?? self
+        }
+        func down() -> SheetPosition {
+            return SheetPosition(rawValue: rawValue - 1) ?? self
+        }
     }
     
     enum VerticalDirection {
@@ -130,15 +161,23 @@ extension FactionBottomSheetViewController {
         guard let superView = view.superview else { return }
         
         switch position {
+        case .peeking:
+            compactConstraint.isActive = false
+            expandedConstraint.isActive = false
+            hiddenConstraint.isActive = false
+            peekingConstraint.isActive = true
         case .hidden:
+            peekingConstraint.isActive = false
             compactConstraint.isActive = false
             expandedConstraint.isActive = false
             hiddenConstraint.isActive = true
         case .compact:
+            peekingConstraint.isActive = false
             expandedConstraint.isActive = false
             hiddenConstraint.isActive = false
             compactConstraint.isActive = true
         case .expanded:
+            peekingConstraint.isActive = false
             compactConstraint.isActive = false
             hiddenConstraint.isActive = false
             expandedConstraint.isActive = true
