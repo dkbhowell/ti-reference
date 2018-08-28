@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="abilityStack" destination="Jca-9R-by1" id="LQC-I7-UIj"/>
                 <outlet property="factionTechStack" destination="NFR-gD-eBX" id="kqb-tI-41F"/>
+                <outlet property="flagshipView" destination="POu-Ht-WAh" id="rsb-O7-v3x"/>
                 <outlet property="panIndicator" destination="x3e-lq-KzR" id="Gcn-TR-6iw"/>
                 <outlet property="quoteLabel" destination="fsB-me-bbE" id="lNc-bw-eUT"/>
                 <outlet property="quoteLabelContainer" destination="geT-ev-yRh" id="Mnn-k2-zFb"/>
@@ -78,11 +79,8 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POu-Ht-WAh" customClass="FlagshipView" customModule="TwilightImperiumReference" customModuleProvider="target">
-                    <rect key="frame" x="8" y="768.5" width="359" height="200"/>
+                    <rect key="frame" x="8" y="768.5" width="359" height="203.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="KzY-OZ-B7r"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

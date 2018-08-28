@@ -16,6 +16,7 @@ class FactionBottomSheetViewController: UIViewController {
     @IBOutlet weak var abilityStack: UIStackView!
     @IBOutlet weak var panIndicator: UIView!
     @IBOutlet weak var factionTechStack: UIStackView!
+    @IBOutlet weak var flagshipView: FlagshipView!
     
     // MARK: Properties
     let faction: Faction
@@ -65,6 +66,13 @@ class FactionBottomSheetViewController: UIViewController {
         // add pan gesture recognizer
         let panRec = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         view.addGestureRecognizer(panRec)
+        
+        // configure flagship
+        flagshipView.setName(faction.flagship.name)
+        flagshipView.setCost(8)
+        flagshipView.setCombat(faction.flagship.hitValue)
+        flagshipView.setCapacity(faction.flagship.capacity)
+        flagshipView.setDescriptino(faction.flagship.ability)
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -11,43 +11,79 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FlagshipView" customModule="TwilightImperiumReference" customModuleProvider="target">
             <connections>
-                <outlet property="capacityAttrContainer" destination="pPN-CA-gFH" id="MzQ-Ly-d73"/>
-                <outlet property="capacityValueContainer" destination="phg-Rw-eiG" id="KHy-m7-BHl"/>
                 <outlet property="capacityValueLabel" destination="4aD-45-JL3" id="ePr-bg-cEt"/>
-                <outlet property="combatAttrContainer" destination="nn6-lp-x9L" id="NVc-38-KBb"/>
-                <outlet property="combatValueContainer" destination="Hof-KH-uB8" id="SsS-FW-wHu"/>
                 <outlet property="combatValueLabel" destination="5o2-w1-jnx" id="Ey1-bq-oqt"/>
-                <outlet property="costAttrContainer" destination="LA3-uH-8ew" id="C0c-od-SLA"/>
-                <outlet property="costValueContainer" destination="wwq-do-AjJ" id="P8k-oK-Rqr"/>
                 <outlet property="costValueLabel" destination="4Ar-gX-iVA" id="xja-if-WXq"/>
-                <outlet property="moveAttrContainer" destination="C43-uA-MpC" id="g6T-h5-Zlr"/>
-                <outlet property="moveValueContainer" destination="TrF-fe-v4J" id="SZU-Hz-6hL"/>
+                <outlet property="descriptionLabel" destination="upi-uD-MAo" id="ZC0-h0-qqN"/>
                 <outlet property="moveValueLabel" destination="sLp-01-cM9" id="l5A-iZ-6Ey"/>
                 <outlet property="titleLabel" destination="CgH-zz-dgo" id="SKa-Mn-XxN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flagship" translatesAutoresizingMaskIntoConstraints="NO" id="qXf-GD-dEQ" userLabel="backgroundImage">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4L-bb-ZxA" userLabel="filterView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrath of Kenara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgH-zz-dgo">
-                            <rect key="frame" x="117.5" y="8" width="140" height="24"/>
-                            <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="K2h-go-o6V">
-                            <rect key="frame" x="41.5" y="127.5" width="292" height="58.5"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6G0-as-71Q" userLabel="TitleContainer" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                            <rect key="frame" x="107.5" y="8" width="160.5" height="28"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LA3-uH-8ew" userLabel="AttributeView">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Wrath of Kenara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgH-zz-dgo">
+                                    <rect key="frame" x="8" y="2" width="144.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <color key="textColor" red="0.94628526264591439" green="0.94628526264591439" blue="0.94628526264591439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="CgH-zz-dgo" secondAttribute="bottom" constant="2" id="ECf-Kk-ZPq"/>
+                                <constraint firstItem="CgH-zz-dgo" firstAttribute="centerX" secondItem="6G0-as-71Q" secondAttribute="centerX" id="Fp1-U9-bhl"/>
+                                <constraint firstAttribute="trailing" secondItem="CgH-zz-dgo" secondAttribute="trailing" constant="8" id="ayk-98-oYO"/>
+                                <constraint firstItem="CgH-zz-dgo" firstAttribute="leading" secondItem="6G0-as-71Q" secondAttribute="leading" constant="8" id="dxz-Zy-xzm"/>
+                                <constraint firstItem="CgH-zz-dgo" firstAttribute="top" secondItem="6G0-as-71Q" secondAttribute="top" constant="2" id="yJb-P6-yN0"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cG1-2r-iGM" userLabel="DescriptionContainer" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                            <rect key="frame" x="13.5" y="52" width="348.5" height="69"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="After you roll a die during a space combat in this system, you may spend 1 trade good to apply +1 to the result." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upi-uD-MAo">
+                                    <rect key="frame" x="4" y="4" width="340.5" height="61"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.85011855540155645" green="0.85011855540155645" blue="0.85011855540155645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="upi-uD-MAo" secondAttribute="trailing" constant="4" id="CQH-Pa-jBt"/>
+                                <constraint firstItem="upi-uD-MAo" firstAttribute="leading" secondItem="cG1-2r-iGM" secondAttribute="leading" constant="4" id="DRD-Ue-SD9"/>
+                                <constraint firstAttribute="bottom" secondItem="upi-uD-MAo" secondAttribute="bottom" constant="4" id="GfN-sy-3xj"/>
+                                <constraint firstItem="upi-uD-MAo" firstAttribute="top" secondItem="cG1-2r-iGM" secondAttribute="top" constant="4" id="w0F-7x-ute"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="K2h-go-o6V">
+                            <rect key="frame" x="41.5" y="137.5" width="292" height="58.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LA3-uH-8ew" userLabel="AttributeView" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="70" height="58.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siK-NW-sxz">
@@ -78,20 +114,9 @@
                                                 <constraint firstItem="4Ar-gX-iVA" firstAttribute="centerX" secondItem="wwq-do-AjJ" secondAttribute="centerX" id="epU-as-enH"/>
                                                 <constraint firstItem="4Ar-gX-iVA" firstAttribute="centerY" secondItem="wwq-do-AjJ" secondAttribute="centerY" id="piL-a3-mhS"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="1" green="0.12463946369927115" blue="0.12390472842719658" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="9"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="70" id="1yL-ZV-3Y4"/>
                                         <constraint firstItem="7pK-zL-cik" firstAttribute="centerY" secondItem="wwq-do-AjJ" secondAttribute="bottom" id="3bl-uq-f59"/>
@@ -108,18 +133,12 @@
                                         <constraint firstAttribute="trailing" secondItem="7pK-zL-cik" secondAttribute="trailing" id="ur2-FK-INT"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.93333333330000001" green="0.090119486726497597" blue="0.060889869850152954" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="2"/>
-                                        </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="4"/>
+                                            <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nn6-lp-x9L" userLabel="AttributeView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nn6-lp-x9L" userLabel="AttributeView" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
                                     <rect key="frame" x="74" y="0.0" width="70" height="58.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmN-vF-kfd">
@@ -150,20 +169,9 @@
                                                 <constraint firstItem="5o2-w1-jnx" firstAttribute="centerY" secondItem="Hof-KH-uB8" secondAttribute="centerY" id="XoV-WP-16B"/>
                                                 <constraint firstItem="5o2-w1-jnx" firstAttribute="centerX" secondItem="Hof-KH-uB8" secondAttribute="centerX" id="rdX-oC-ClB"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="1" green="0.12463946369999999" blue="0.1239047284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="9"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="nn6-lp-x9L" secondAttribute="height" multiplier="1.2:1" id="1PS-ae-zNz"/>
                                         <constraint firstItem="cmN-vF-kfd" firstAttribute="leading" secondItem="nn6-lp-x9L" secondAttribute="leading" id="1rV-jN-KXU"/>
@@ -179,18 +187,12 @@
                                         <constraint firstAttribute="trailing" secondItem="vqZ-Xz-kzB" secondAttribute="trailing" id="xQK-Yf-1IO"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.93333333330000001" green="0.090119486730000004" blue="0.06088986985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="2"/>
-                                        </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="4"/>
+                                            <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C43-uA-MpC" userLabel="AttributeView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C43-uA-MpC" userLabel="AttributeView" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
                                     <rect key="frame" x="148" y="0.0" width="70" height="58.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdM-jy-xgC">
@@ -220,20 +222,9 @@
                                                 <constraint firstItem="sLp-01-cM9" firstAttribute="centerY" secondItem="TrF-fe-v4J" secondAttribute="centerY" id="ZVC-DJ-goI"/>
                                                 <constraint firstItem="sLp-01-cM9" firstAttribute="centerX" secondItem="TrF-fe-v4J" secondAttribute="centerX" id="wuG-ik-4Vt"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="1" green="0.12463946369999999" blue="0.1239047284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="9"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="vdM-jy-xgC" secondAttribute="bottom" constant="4" id="1OH-hT-wGF"/>
                                         <constraint firstItem="iuT-ox-khz" firstAttribute="centerY" secondItem="TrF-fe-v4J" secondAttribute="bottom" id="CYH-wW-oa3"/>
@@ -249,18 +240,12 @@
                                         <constraint firstItem="iuT-ox-khz" firstAttribute="leading" secondItem="C43-uA-MpC" secondAttribute="leading" id="rtU-sn-ybL"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.93333333330000001" green="0.090119486730000004" blue="0.06088986985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="2"/>
-                                        </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="4"/>
+                                            <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPN-CA-gFH" userLabel="AttributeView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPN-CA-gFH" userLabel="AttributeView" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
                                     <rect key="frame" x="222" y="0.0" width="70" height="58.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djq-Hk-JRS">
@@ -291,20 +276,9 @@
                                                 <constraint firstItem="4aD-45-JL3" firstAttribute="centerX" secondItem="phg-Rw-eiG" secondAttribute="centerX" id="CwB-Gn-iHX"/>
                                                 <constraint firstItem="4aD-45-JL3" firstAttribute="centerY" secondItem="phg-Rw-eiG" secondAttribute="centerY" id="qdC-0F-Ndl"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="1" green="0.12463946369999999" blue="0.1239047284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="9"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="RWf-VE-eKs" secondAttribute="trailing" id="18W-ch-AoC"/>
                                         <constraint firstAttribute="width" secondItem="pPN-CA-gFH" secondAttribute="height" multiplier="1.2:1" id="2WY-82-G0P"/>
@@ -320,14 +294,8 @@
                                         <constraint firstItem="RWf-VE-eKs" firstAttribute="centerY" secondItem="phg-Rw-eiG" secondAttribute="bottom" id="zM1-f3-W8p"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.93333333330000001" green="0.090119486730000004" blue="0.06088986985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="2"/>
-                                        </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="4"/>
+                                            <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
@@ -341,10 +309,15 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="CgH-zz-dgo" firstAttribute="centerX" secondItem="V4L-bb-ZxA" secondAttribute="centerX" id="JqK-1W-Ab8"/>
-                        <constraint firstItem="CgH-zz-dgo" firstAttribute="top" secondItem="V4L-bb-ZxA" secondAttribute="top" constant="8" id="Ush-lq-8pO"/>
+                        <constraint firstItem="6G0-as-71Q" firstAttribute="top" secondItem="V4L-bb-ZxA" secondAttribute="top" constant="8" id="3Vq-Jk-SGh"/>
+                        <constraint firstItem="6G0-as-71Q" firstAttribute="centerX" secondItem="V4L-bb-ZxA" secondAttribute="centerX" id="96z-JC-wdZ"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cG1-2r-iGM" secondAttribute="trailing" constant="8" id="gyV-xC-pxQ"/>
+                        <constraint firstItem="cG1-2r-iGM" firstAttribute="top" secondItem="6G0-as-71Q" secondAttribute="bottom" constant="16" id="iZj-a4-H5X"/>
+                        <constraint firstItem="cG1-2r-iGM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V4L-bb-ZxA" secondAttribute="leading" constant="8" id="jHh-jx-zej"/>
                         <constraint firstItem="K2h-go-o6V" firstAttribute="centerX" secondItem="V4L-bb-ZxA" secondAttribute="centerX" id="oEz-Y2-bkb"/>
+                        <constraint firstItem="K2h-go-o6V" firstAttribute="top" secondItem="cG1-2r-iGM" secondAttribute="bottom" constant="16" id="pfZ-bB-qUm"/>
                         <constraint firstAttribute="bottom" secondItem="K2h-go-o6V" secondAttribute="bottom" constant="8" id="raD-Yz-JTD"/>
+                        <constraint firstItem="cG1-2r-iGM" firstAttribute="centerX" secondItem="6G0-as-71Q" secondAttribute="centerX" id="sOE-HK-mTg"/>
                     </constraints>
                 </view>
             </subviews>
@@ -361,7 +334,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="138.40000000000001" y="-59.370314842578715"/>
+            <point key="canvasLocation" x="138.40000000000001" y="-54.872563718140931"/>
         </view>
     </objects>
     <resources>

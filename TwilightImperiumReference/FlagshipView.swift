@@ -12,19 +12,12 @@ import UIKit
 class FlagshipView: UIView {
     
     // MARK: Outlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var costValueLabel: UILabel!
-    @IBOutlet weak var combatValueLabel: UILabel!
-    @IBOutlet weak var moveValueLabel: UILabel!
-    @IBOutlet weak var capacityValueLabel: UILabel!
-    @IBOutlet weak var costValueContainer: UIView!
-    @IBOutlet weak var combatValueContainer: UIView!
-    @IBOutlet weak var moveValueContainer: UIView!
-    @IBOutlet weak var capacityValueContainer: UIView!
-    @IBOutlet weak var costAttrContainer: UIView!
-    @IBOutlet weak var combatAttrContainer: UIView!
-    @IBOutlet weak var moveAttrContainer: UIView!
-    @IBOutlet weak var capacityAttrContainer: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var costValueLabel: UILabel!
+    @IBOutlet private weak var combatValueLabel: UILabel!
+    @IBOutlet private weak var moveValueLabel: UILabel!
+    @IBOutlet private weak var capacityValueLabel: UILabel!
     
     
     override init(frame: CGRect) {
@@ -47,12 +40,22 @@ class FlagshipView: UIView {
         nibView.backgroundColor = UIColor.clear
         addSubview(nibView)
         nibView.pin(toView: self)
-        
-        [costAttrContainer, combatAttrContainer, moveAttrContainer, capacityAttrContainer].forEach {
-            $0!.layer.cornerRadius = 10
-            $0!.clipsToBounds = true
-            $0?.backgroundColor = UIColor.white.withAlphaComponent(0.75)
-        }
+    }
+    
+    func setName(_ name: String) {
+        titleLabel.text = name
+    }
+    func setDescriptino(_ desc: String) {
+        descriptionLabel.text = desc
+    }
+    func setCost(_ cost: Int) {
+        costValueLabel.text = "\(cost)"
+    }
+    func setCombat(_ combat: Int) {
+        combatValueLabel.text = "\(combat)"
+    }
+    func setCapacity(_ cap: Int) {
+        capacityValueLabel.text = "\(cap)"
     }
 
 }

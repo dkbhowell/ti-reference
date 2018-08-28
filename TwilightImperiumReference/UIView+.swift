@@ -15,7 +15,8 @@ extension UIView {
             return layer.cornerRadius
         }
         set {
-            layer.cornerRadius = cornerRadius
+            layer.masksToBounds = true
+            layer.cornerRadius = newValue
         }
         
     }
@@ -29,11 +30,7 @@ extension UIView {
             return nil
         }
         set {
-            if let color = newValue {
-                layer.borderColor = color.cgColor
-            } else {
-                layer.borderColor = nil
-            }
+            layer.borderColor = newValue?.cgColor
         }
     }
     
@@ -42,7 +39,7 @@ extension UIView {
             return layer.borderWidth
         }
         set {
-            layer.borderWidth = borderWidth
+            layer.borderWidth = newValue
         }
     }
     
