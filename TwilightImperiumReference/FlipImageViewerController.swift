@@ -126,11 +126,10 @@ class FlipImageViewerController: UIViewController {
         bottomSheet.hiddenConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.bottomAnchor)
         bottomSheet.peekingConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         bottomSheet.compactConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -200)
-//        bottomSheet.expandedConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        bottomSheet.expandedConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.topAnchor)
+        bottomSheet.expandedConstraint = bottomSheet.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         NSLayoutConstraint.activate([
             bottomSheet.view.widthAnchor.constraint(equalTo: view.widthAnchor),
-            bottomSheet.view.heightAnchor.constraint(equalTo: view.heightAnchor),
+            bottomSheet.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
             bottomSheet.hiddenConstraint,
             bottomSheet.view.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
