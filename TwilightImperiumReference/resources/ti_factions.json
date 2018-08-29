@@ -215,7 +215,7 @@
                     "prerequisites": ["G", "G", "G"]
                 }
             ],
-            "starting_tech": ["g0, y0"]
+            "starting_tech": ["g0", "y0"]
         },
         {
             "name": "The Winnu",

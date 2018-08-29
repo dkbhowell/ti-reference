@@ -117,6 +117,7 @@ class FlipImageViewerController: UIViewController {
     }
     
     private func addBottomSheet() {
+        guard factionBottomSheet == nil else { return }
         let bottomSheet = FactionBottomSheetViewController(faction: faction)
         factionBottomSheet = bottomSheet
         addChild(bottomSheet)
