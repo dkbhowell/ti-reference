@@ -19,6 +19,7 @@ class FactionBottomSheetViewController: UIViewController {
     @IBOutlet weak var startingTechStack: UIStackView!
     @IBOutlet weak var flagshipView: FlagshipView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var commoditiesValueLabel: UILabel!
     
     // MARK: Properties
     let faction: Faction
@@ -94,6 +95,8 @@ class FactionBottomSheetViewController: UIViewController {
         flagshipView.setCombat(faction.flagship.hitValue)
         flagshipView.setCapacity(faction.flagship.capacity)
         flagshipView.setDescriptino(faction.flagship.ability)
+        
+        commoditiesValueLabel.text = "\(faction.commodities)"
         
         scrollView.isScrollEnabled = false
         scrollView.delegate = self
@@ -213,7 +216,7 @@ extension FactionBottomSheetViewController: UIGestureRecognizerDelegate {
 
 extension FactionBottomSheetViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y <= -100 {
+        if scrollView.contentOffset.y <= -50 {
             scrollView.isScrollEnabled = false
             moveSheet(to: .compact)
         }

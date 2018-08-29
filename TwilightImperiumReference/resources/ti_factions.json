@@ -173,7 +173,7 @@
                     "prerequisites": ["G", "G"]
                 }
             ],
-            "starting_tech": ["b0, y0"]
+            "starting_tech": ["b0", "y0"]
         },
         {
             "name": "The Naalu Collective",

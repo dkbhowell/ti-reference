@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FactionBottomSheetViewController" customModule="TwilightImperiumReference" customModuleProvider="target">
             <connections>
                 <outlet property="abilityStack" destination="Jca-9R-by1" id="LQC-I7-UIj"/>
+                <outlet property="commoditiesValueLabel" destination="81E-cf-HGy" id="pS4-sk-Wdp"/>
                 <outlet property="factionTechStack" destination="NFR-gD-eBX" id="kqb-tI-41F"/>
                 <outlet property="flagshipView" destination="POu-Ht-WAh" id="rsb-O7-v3x"/>
                 <outlet property="panIndicator" destination="x3e-lq-KzR" id="Gcn-TR-6iw"/>
@@ -39,7 +40,7 @@
                     <rect key="frame" x="0.0" y="40" width="375" height="1960"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5R4-YO-MiE" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="1459"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1600"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geT-ev-yRh">
                                     <rect key="frame" x="20" y="10" width="335" height="97.5"/>
@@ -98,6 +99,12 @@
                                         </view>
                                     </subviews>
                                 </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Techs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-EQ-WDh">
+                                    <rect key="frame" x="16" y="818.5" width="132" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lVd-O9-SmL" userLabel="Starting Tech Stack">
                                     <rect key="frame" x="16" y="850.5" width="343" height="347"/>
                                     <subviews>
@@ -111,22 +118,58 @@
                                         </view>
                                     </subviews>
                                 </stackView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POu-Ht-WAh" customClass="FlagshipView" customModule="TwilightImperiumReference" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="1245.5" width="335" height="203.5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Techs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-EQ-WDh">
-                                    <rect key="frame" x="16" y="818.5" width="132" height="24"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flagship" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIF-5Y-9wO">
                                     <rect key="frame" x="20" y="1213.5" width="78" height="24"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POu-Ht-WAh" customClass="FlagshipView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="1245.5" width="335" height="203.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsk-hI-MgM" userLabel="CommoditiesContainer" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="1465" width="335" height="119"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commodities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkH-tl-zmq">
+                                            <rect key="frame" x="106.5" y="8" width="122.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5eW-g2-TJ1">
+                                            <rect key="frame" x="127.5" y="52" width="80.5" height="48"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commodities" translatesAutoresizingMaskIntoConstraints="NO" id="cZo-Fa-8Hg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="cZo-Fa-8Hg" secondAttribute="height" multiplier="1:1" id="Gc3-oJ-OMq"/>
+                                                        <constraint firstAttribute="width" constant="48" id="iC0-31-4EP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81E-cf-HGy">
+                                                    <rect key="frame" x="64" y="0.0" width="16.5" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="WkH-tl-zmq" firstAttribute="top" secondItem="vsk-hI-MgM" secondAttribute="top" constant="8" id="67c-3G-gtA"/>
+                                        <constraint firstItem="5eW-g2-TJ1" firstAttribute="top" secondItem="WkH-tl-zmq" secondAttribute="bottom" constant="20" id="Bp0-bF-SWv"/>
+                                        <constraint firstItem="WkH-tl-zmq" firstAttribute="centerX" secondItem="vsk-hI-MgM" secondAttribute="centerX" id="GEM-fu-Doo"/>
+                                        <constraint firstItem="5eW-g2-TJ1" firstAttribute="centerX" secondItem="vsk-hI-MgM" secondAttribute="centerX" id="V0J-6A-DxP"/>
+                                        <constraint firstAttribute="bottom" secondItem="5eW-g2-TJ1" secondAttribute="bottom" constant="19" id="i9Y-OC-8aP"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="13"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -144,14 +187,17 @@
                                 <constraint firstItem="snq-Nl-rdZ" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="16" id="VyL-93-thy"/>
                                 <constraint firstItem="4Ot-cB-8x9" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="16" id="YT5-dl-RT0"/>
                                 <constraint firstItem="snq-Nl-rdZ" firstAttribute="top" secondItem="Jca-9R-by1" secondAttribute="bottom" constant="16" id="abW-aU-vu1"/>
+                                <constraint firstItem="vsk-hI-MgM" firstAttribute="top" secondItem="POu-Ht-WAh" secondAttribute="bottom" constant="16" id="adt-tP-W4c"/>
                                 <constraint firstItem="Jca-9R-by1" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="awH-kD-STc"/>
                                 <constraint firstAttribute="trailing" secondItem="lVd-O9-SmL" secondAttribute="trailing" constant="16" id="im5-7J-yqY"/>
                                 <constraint firstItem="geT-ev-yRh" firstAttribute="top" secondItem="5R4-YO-MiE" secondAttribute="top" constant="10" id="kTn-jV-qtw"/>
                                 <constraint firstItem="POu-Ht-WAh" firstAttribute="top" secondItem="nIF-5Y-9wO" secondAttribute="bottom" constant="8" id="lhV-Aq-hmD"/>
+                                <constraint firstAttribute="bottom" secondItem="vsk-hI-MgM" secondAttribute="bottom" constant="16" id="ouQ-WO-acb"/>
                                 <constraint firstItem="nIF-5Y-9wO" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="pF9-Kt-Qet"/>
                                 <constraint firstAttribute="trailing" secondItem="geT-ev-yRh" secondAttribute="trailing" constant="20" id="skX-8R-gjK"/>
+                                <constraint firstItem="vsk-hI-MgM" firstAttribute="centerX" secondItem="5R4-YO-MiE" secondAttribute="centerX" id="vZ1-tE-iZt"/>
                                 <constraint firstItem="hB6-EQ-WDh" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="16" id="wKm-do-xay"/>
-                                <constraint firstAttribute="bottom" secondItem="POu-Ht-WAh" secondAttribute="bottom" constant="10" id="ySO-So-Ogr"/>
+                                <constraint firstItem="vsk-hI-MgM" firstAttribute="width" secondItem="POu-Ht-WAh" secondAttribute="width" id="xd2-yk-xbe"/>
                                 <constraint firstItem="hB6-EQ-WDh" firstAttribute="top" secondItem="NFR-gD-eBX" secondAttribute="bottom" constant="16" id="ylS-IM-PuP"/>
                                 <constraint firstItem="geT-ev-yRh" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="zOn-1b-19B"/>
                             </constraints>
@@ -180,4 +226,7 @@
             <point key="canvasLocation" x="53.600000000000001" y="371.51424287856076"/>
         </view>
     </objects>
+    <resources>
+        <image name="commodities" width="48" height="48"/>
+    </resources>
 </document>
