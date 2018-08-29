@@ -87,6 +87,7 @@ class FactionBottomSheetViewController: UIViewController {
         flagshipView.setDescriptino(faction.flagship.ability)
         
         scrollView.isScrollEnabled = false
+        scrollView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -181,6 +182,8 @@ extension FactionBottomSheetViewController {
             compactConstraint.isActive = false
             hiddenConstraint.isActive = false
             expandedConstraint.isActive = true
+            print("Enabling Scroll")
+            scrollView.isScrollEnabled = true
         }
         
         UIView.animate(withDuration: 0.6) {
@@ -191,30 +194,19 @@ extension FactionBottomSheetViewController {
 
 extension FactionBottomSheetViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        print("shouldRecognizeSimultaneouslyWith")
-//        print("this gesture rec: \(gestureRecognizer)")
-//        print("other gesture rec: \(otherGestureRecognizer)")
-//        let gesture = (gestureRecognizer as! UIPanGestureRecognizer)
-//        let direction = gesture.velocity(in: view).y
-//
-//        let y = view.frame.minY.rounded()
-//        print("view's frame y: \(y)")
-//
-//        // enable scrolling when view hits top (y == 100)
-//        if (y == 100) {
-//            scrollView.isScrollEnabled = true
-//        }
-//
-//        // disable scrolling when view is at the top, scrollview is at top, and pan gesture is in the right direction
-//        if (y == 100 && scrollView.contentOffset.y == 0 && direction > 0) {
-//            scrollView.isScrollEnabled = false
-//        }
-        
         return false
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        print("gestureRecognizerShouldBegin")
         return true
+    }
+}
+
+extension FactionBottomSheetViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y <= -100 {
+            scrollView.isScrollEnabled = false
+            moveSheet(to: .compact)
+        }
     }
 }
