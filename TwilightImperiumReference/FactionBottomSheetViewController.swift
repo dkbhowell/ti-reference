@@ -16,6 +16,7 @@ class FactionBottomSheetViewController: UIViewController {
     @IBOutlet weak var abilityStack: UIStackView!
     @IBOutlet weak var panIndicator: UIView!
     @IBOutlet weak var factionTechStack: UIStackView!
+    @IBOutlet weak var startingTechStack: UIStackView!
     @IBOutlet weak var flagshipView: FlagshipView!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -71,6 +72,14 @@ class FactionBottomSheetViewController: UIViewController {
             techCard.setAppearance(forTechType: facTech.type)
             factionTechStack.addArrangedSubview(techCard)
         }
+        
+        startingTechStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        for tech in faction.startingTechs {
+            let techCard = TechCardView(title: tech.name, cardText: tech.description, prereqString: tech.prereqString)
+            techCard.setAppearance(forTechType: tech.type)
+            startingTechStack.addArrangedSubview(techCard)
+        }
+        
         quoteLabelContainer.backgroundColor = UIColor.white.withAlphaComponent(0.45)
         quoteLabelContainer.layer.cornerRadius = 10
         

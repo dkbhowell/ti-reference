@@ -18,12 +18,13 @@
                 <outlet property="quoteLabel" destination="fsB-me-bbE" id="lNc-bw-eUT"/>
                 <outlet property="quoteLabelContainer" destination="geT-ev-yRh" id="Mnn-k2-zFb"/>
                 <outlet property="scrollView" destination="KQo-tm-adb" id="gEw-gT-diG"/>
+                <outlet property="startingTechStack" destination="lVd-O9-SmL" id="fGn-0Q-xMM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3e-lq-KzR">
@@ -35,10 +36,10 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-tm-adb">
-                    <rect key="frame" x="0.0" y="40" width="375" height="1460"/>
+                    <rect key="frame" x="0.0" y="40" width="375" height="1960"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5R4-YO-MiE" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="968"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1459"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geT-ev-yRh">
                                     <rect key="frame" x="20" y="10" width="335" height="97.5"/>
@@ -59,8 +60,14 @@
                                         <constraint firstAttribute="trailing" secondItem="fsB-me-bbE" secondAttribute="trailing" constant="8" id="zOA-VW-wAa"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faction Abilities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ot-cB-8x9">
+                                    <rect key="frame" x="16" y="123.5" width="146" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-9R-by1">
-                                    <rect key="frame" x="20" y="123.5" width="335" height="252"/>
+                                    <rect key="frame" x="20" y="155.5" width="335" height="252"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22r-tD-TOP" customClass="AbilityView" customModule="TwilightImperiumReference" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="122"/>
@@ -72,8 +79,14 @@
                                         </view>
                                     </subviews>
                                 </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faction Techs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snq-Nl-rdZ">
+                                    <rect key="frame" x="16" y="423.5" width="126" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-gD-eBX">
-                                    <rect key="frame" x="20" y="391.5" width="335" height="347"/>
+                                    <rect key="frame" x="20" y="455.5" width="335" height="347"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEW-rz-CWg" customClass="TechCardView" customModule="TwilightImperiumReference" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="169.5"/>
@@ -85,26 +98,62 @@
                                         </view>
                                     </subviews>
                                 </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lVd-O9-SmL" userLabel="Starting Tech Stack">
+                                    <rect key="frame" x="16" y="850.5" width="343" height="347"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sV7-yn-Wap" customClass="TechCardView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="169.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3e-YN-TlM" customClass="TechCardView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="177.5" width="343" height="169.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POu-Ht-WAh" customClass="FlagshipView" customModule="TwilightImperiumReference" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="754.5" width="335" height="203.5"/>
+                                    <rect key="frame" x="20" y="1245.5" width="335" height="203.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Techs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-EQ-WDh">
+                                    <rect key="frame" x="16" y="818.5" width="132" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flagship" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIF-5Y-9wO">
+                                    <rect key="frame" x="20" y="1213.5" width="78" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="NFR-gD-eBX" firstAttribute="top" secondItem="snq-Nl-rdZ" secondAttribute="bottom" constant="8" id="46E-VR-cnx"/>
                                 <constraint firstAttribute="trailing" secondItem="NFR-gD-eBX" secondAttribute="trailing" constant="20" id="4Td-nX-iHo"/>
                                 <constraint firstItem="NFR-gD-eBX" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="5Na-3b-6R3"/>
+                                <constraint firstItem="4Ot-cB-8x9" firstAttribute="top" secondItem="geT-ev-yRh" secondAttribute="bottom" constant="16" id="Aie-w0-Rmp"/>
+                                <constraint firstItem="nIF-5Y-9wO" firstAttribute="top" secondItem="lVd-O9-SmL" secondAttribute="bottom" constant="16" id="Fw1-Q8-PQc"/>
+                                <constraint firstItem="Jca-9R-by1" firstAttribute="top" secondItem="4Ot-cB-8x9" secondAttribute="bottom" constant="8" id="Hr0-aA-ti8"/>
                                 <constraint firstAttribute="trailing" secondItem="Jca-9R-by1" secondAttribute="trailing" constant="20" id="N8t-IE-pPQ"/>
                                 <constraint firstAttribute="trailing" secondItem="POu-Ht-WAh" secondAttribute="trailing" constant="20" id="NuF-nx-l2U"/>
+                                <constraint firstItem="lVd-O9-SmL" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="16" id="OB5-vm-Jbi"/>
+                                <constraint firstItem="lVd-O9-SmL" firstAttribute="top" secondItem="hB6-EQ-WDh" secondAttribute="bottom" constant="8" id="SKc-mS-o7j"/>
                                 <constraint firstItem="POu-Ht-WAh" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="Thl-p5-hNf"/>
-                                <constraint firstItem="NFR-gD-eBX" firstAttribute="top" secondItem="Jca-9R-by1" secondAttribute="bottom" constant="16" id="WWC-Uz-wK8"/>
+                                <constraint firstItem="snq-Nl-rdZ" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="16" id="VyL-93-thy"/>
+                                <constraint firstItem="4Ot-cB-8x9" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="16" id="YT5-dl-RT0"/>
+                                <constraint firstItem="snq-Nl-rdZ" firstAttribute="top" secondItem="Jca-9R-by1" secondAttribute="bottom" constant="16" id="abW-aU-vu1"/>
                                 <constraint firstItem="Jca-9R-by1" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="awH-kD-STc"/>
-                                <constraint firstItem="POu-Ht-WAh" firstAttribute="top" secondItem="NFR-gD-eBX" secondAttribute="bottom" constant="16" id="g3M-0n-qGU"/>
+                                <constraint firstAttribute="trailing" secondItem="lVd-O9-SmL" secondAttribute="trailing" constant="16" id="im5-7J-yqY"/>
                                 <constraint firstItem="geT-ev-yRh" firstAttribute="top" secondItem="5R4-YO-MiE" secondAttribute="top" constant="10" id="kTn-jV-qtw"/>
+                                <constraint firstItem="POu-Ht-WAh" firstAttribute="top" secondItem="nIF-5Y-9wO" secondAttribute="bottom" constant="8" id="lhV-Aq-hmD"/>
+                                <constraint firstItem="nIF-5Y-9wO" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="pF9-Kt-Qet"/>
                                 <constraint firstAttribute="trailing" secondItem="geT-ev-yRh" secondAttribute="trailing" constant="20" id="skX-8R-gjK"/>
+                                <constraint firstItem="hB6-EQ-WDh" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="16" id="wKm-do-xay"/>
                                 <constraint firstAttribute="bottom" secondItem="POu-Ht-WAh" secondAttribute="bottom" constant="10" id="ySO-So-Ogr"/>
+                                <constraint firstItem="hB6-EQ-WDh" firstAttribute="top" secondItem="NFR-gD-eBX" secondAttribute="bottom" constant="16" id="ylS-IM-PuP"/>
                                 <constraint firstItem="geT-ev-yRh" firstAttribute="leading" secondItem="5R4-YO-MiE" secondAttribute="leading" constant="20" id="zOn-1b-19B"/>
-                                <constraint firstItem="Jca-9R-by1" firstAttribute="top" secondItem="geT-ev-yRh" secondAttribute="bottom" constant="16" id="zfb-d2-epU"/>
                             </constraints>
                         </view>
                     </subviews>
