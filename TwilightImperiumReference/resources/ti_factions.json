@@ -235,7 +235,7 @@
             "flagship": {
                 "name": "Salai Sai Corian",
                 "hit_value": 7,
-                "number_of_rolls": 1,
+                "number_of_rolls": -1,
                 "capacity": 3,
                 "move": 1,
                 "ability": "When this unit makes a combat roll, it rolls a number of dice equal to the number of your opponent's non-fighter ships in this system."
@@ -521,7 +521,7 @@
                     "prerequisites": ["Y", "Y"]
                 }
             ],
-            "starting_tech": ["r0, y0"]
+            "starting_tech": ["r0", "y0"]
         },
         {
             "name": "The Barony of Letnev",

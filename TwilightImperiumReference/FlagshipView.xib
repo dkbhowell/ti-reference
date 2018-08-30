@@ -16,6 +16,7 @@
                 <outlet property="costValueLabel" destination="4Ar-gX-iVA" id="xja-if-WXq"/>
                 <outlet property="descriptionLabel" destination="upi-uD-MAo" id="ZC0-h0-qqN"/>
                 <outlet property="moveValueLabel" destination="sLp-01-cM9" id="l5A-iZ-6Ey"/>
+                <outlet property="numDiceLabel" destination="Ebn-HX-3ZH" id="JUq-c2-h5H"/>
                 <outlet property="titleLabel" destination="CgH-zz-dgo" id="SKa-Mn-XxN"/>
             </connections>
         </placeholder>
@@ -30,10 +31,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4L-bb-ZxA" userLabel="filterView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6G0-as-71Q" userLabel="TitleContainer" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6G0-as-71Q" userLabel="TitleContainer" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
                             <rect key="frame" x="107.5" y="8" width="160.5" height="28"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Wrath of Kenara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgH-zz-dgo">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrath of Kenara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgH-zz-dgo">
                                     <rect key="frame" x="8" y="2" width="144.5" height="24"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="textColor" red="0.94628526264591439" green="0.94628526264591439" blue="0.94628526264591439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,10 +55,10 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cG1-2r-iGM" userLabel="DescriptionContainer" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cG1-2r-iGM" userLabel="DescriptionContainer" customClass="DesignableView" customModule="TwilightImperiumReference" customModuleProvider="target">
                             <rect key="frame" x="13.5" y="52" width="348.5" height="69"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="After you roll a die during a space combat in this system, you may spend 1 trade good to apply +1 to the result." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upi-uD-MAo">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After you roll a die during a space combat in this system, you may spend 1 trade good to apply +1 to the result." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upi-uD-MAo">
                                     <rect key="frame" x="4" y="4" width="340.5" height="61"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.85011855540155645" green="0.85011855540155645" blue="0.85011855540155645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,16 +159,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="32.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5o2-w1-jnx">
-                                                    <rect key="frame" x="29" y="5" width="12.5" height="23"/>
+                                                    <rect key="frame" x="11.5" y="5" width="12.5" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyI-H4-WVf" userLabel="SeparatorView">
+                                                    <rect key="frame" x="34.5" y="0.0" width="1" height="32.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="1" id="wup-Ix-bjw"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-HX-3ZH">
+                                                    <rect key="frame" x="43.5" y="6" width="18.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="cyI-H4-WVf" firstAttribute="centerX" secondItem="Hof-KH-uB8" secondAttribute="centerX" id="4cC-HP-bHx"/>
+                                                <constraint firstItem="Ebn-HX-3ZH" firstAttribute="centerY" secondItem="Hof-KH-uB8" secondAttribute="centerY" id="D8v-fM-POD"/>
+                                                <constraint firstItem="Ebn-HX-3ZH" firstAttribute="centerX" secondItem="Hof-KH-uB8" secondAttribute="centerX" multiplier="1.5" id="TaY-4Q-bQ7"/>
                                                 <constraint firstItem="5o2-w1-jnx" firstAttribute="centerY" secondItem="Hof-KH-uB8" secondAttribute="centerY" id="XoV-WP-16B"/>
-                                                <constraint firstItem="5o2-w1-jnx" firstAttribute="centerX" secondItem="Hof-KH-uB8" secondAttribute="centerX" id="rdX-oC-ClB"/>
+                                                <constraint firstAttribute="bottom" secondItem="cyI-H4-WVf" secondAttribute="bottom" id="nAg-NN-xN8"/>
+                                                <constraint firstItem="5o2-w1-jnx" firstAttribute="centerX" secondItem="Hof-KH-uB8" secondAttribute="centerX" multiplier="0.5" id="rdX-oC-ClB"/>
+                                                <constraint firstItem="cyI-H4-WVf" firstAttribute="top" secondItem="Hof-KH-uB8" secondAttribute="top" id="yd5-JT-uY5"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -315,7 +334,7 @@
                         <constraint firstItem="cG1-2r-iGM" firstAttribute="top" secondItem="6G0-as-71Q" secondAttribute="bottom" constant="16" id="iZj-a4-H5X"/>
                         <constraint firstItem="cG1-2r-iGM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V4L-bb-ZxA" secondAttribute="leading" constant="8" id="jHh-jx-zej"/>
                         <constraint firstItem="K2h-go-o6V" firstAttribute="centerX" secondItem="V4L-bb-ZxA" secondAttribute="centerX" id="oEz-Y2-bkb"/>
-                        <constraint firstItem="K2h-go-o6V" firstAttribute="top" secondItem="cG1-2r-iGM" secondAttribute="bottom" constant="16" id="pfZ-bB-qUm"/>
+                        <constraint firstItem="K2h-go-o6V" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cG1-2r-iGM" secondAttribute="bottom" constant="16" id="pfZ-bB-qUm"/>
                         <constraint firstAttribute="bottom" secondItem="K2h-go-o6V" secondAttribute="bottom" constant="8" id="raD-Yz-JTD"/>
                         <constraint firstItem="cG1-2r-iGM" firstAttribute="centerX" secondItem="6G0-as-71Q" secondAttribute="centerX" id="sOE-HK-mTg"/>
                     </constraints>

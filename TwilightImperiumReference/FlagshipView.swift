@@ -18,6 +18,7 @@ class FlagshipView: UIView {
     @IBOutlet private weak var combatValueLabel: UILabel!
     @IBOutlet private weak var moveValueLabel: UILabel!
     @IBOutlet private weak var capacityValueLabel: UILabel!
+    @IBOutlet private weak var numDiceLabel: UILabel!
     
     
     override init(frame: CGRect) {
@@ -56,6 +57,12 @@ class FlagshipView: UIView {
     }
     func setCapacity(_ cap: Int) {
         capacityValueLabel.text = "\(cap)"
+    }
+    func setNumDice(_ dice: Int) {
+        numDiceLabel.text = dice < 0 ? "xY" : "x\(dice)"
+    }
+    func setMove(_ move: Int) {
+        moveValueLabel.text = "\(move)"
     }
 
 }

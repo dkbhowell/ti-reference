@@ -92,9 +92,11 @@ class FactionBottomSheetViewController: UIViewController {
         // configure flagship
         flagshipView.setName(faction.flagship.name)
         flagshipView.setCost(8)
+        flagshipView.setMove(faction.flagship.move)
         flagshipView.setCombat(faction.flagship.hitValue)
         flagshipView.setCapacity(faction.flagship.capacity)
         flagshipView.setDescriptino(faction.flagship.ability)
+        flagshipView.setNumDice(faction.flagship.numberOfRolls)
         
         commoditiesValueLabel.text = "\(faction.commodities)"
         
