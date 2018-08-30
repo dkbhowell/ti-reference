@@ -29,11 +29,7 @@ class FactionBottomSheetViewController: UIViewController {
     var expandedConstraint: NSLayoutConstraint!
     var peekingConstraint: NSLayoutConstraint!
     
-    var position: SheetPosition = .compact {
-        didSet {
-            moveSheet(to: position)
-        }
-    }
+    var position: SheetPosition = .compact
     
     init(faction: Faction) {
         self.faction = faction
@@ -109,25 +105,92 @@ class FactionBottomSheetViewController: UIViewController {
         moveSheet(to: .compact)
     }
     
+    var animator: UIViewPropertyAnimator!
+    var initialY: CGFloat = 0
 
     @objc private func panGestureRecognized(gestureRecognizer: UIPanGestureRecognizer) {
-//        print("panGestureRecognized")
-        let translation = gestureRecognizer.translation(in: self.view)
-        let y = self.view.frame.minY
-        let newy = y + translation.y < 100 ? 100 : y + translation.y
-        let newFrame = CGRect(x: 0, y: newy, width: view.frame.width, height: view.frame.height)
-        self.view.frame = newFrame
-        gestureRecognizer.setTranslation(.zero, in: self.view)
-
-        if gestureRecognizer.state == .ended {
-            print("Gesture ended")
-            guard let superView = view.superview else { return }
-            superView.setNeedsLayout()
-            let velocity = gestureRecognizer.velocity(in: superView)
-            print("Velocity of pan: \(velocity)")
-            let newPosition = abs(velocity.y) > 100 ? findNextPosition(startingPosition: position, velocity: velocity) : findClosestPosition(newY: newy)
-            position = newPosition
+        guard let superView = view.superview else { fatalError("no superview") }
+        switch gestureRecognizer.state {
+        case .began:
+            initialY = view.frame.minY
+            animator = getAnimatorForTransition(fromPosition: position)
+            animator.pauseAnimation()
+        case .changed:
+            let translation = gestureRecognizer.translation(in: superView)
+            let percentComplete = getAnimationPercentComplete(translation: translation, position: position)
+            print("percent complete: \(percentComplete)")
+            animator.fractionComplete = percentComplete
+        case .ended:
+            let location = gestureRecognizer.location(in: superView)
+            var velocity = gestureRecognizer.velocity(in: superView).y
+            let translation = gestureRecognizer.translation(in: superView)
+            
+            if position == .expanded { velocity = -velocity }
+            if ( abs(velocity) < 500 && abs(translation.y) < 150) || velocity > 0 {
+                print("reversing animator")
+                animator.isReversed = true
+            }
+            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            
+            // continue animation if (velocity over threshold in the right direction aka flick), (velocity under threshold, but movement is over threshold, slow and long)
+            // reverse animation if (velocity under threshold and movement is under threshold)
+        default:
+            break
         }
+    }
+    
+    private func getAnimatorForTransition(fromPosition pos: SheetPosition) -> UIViewPropertyAnimator {
+        guard let superView = view.superview else { fatalError("no superview") }
+        var animator: UIViewPropertyAnimator
+        switch pos {
+        case .compact:
+            animator = UIViewPropertyAnimator(duration: 0.6, curve: .easeOut, animations: { [weak self] in
+                self?.setConstraints(forPosition: .expanded)
+                superView.layoutIfNeeded()
+            })
+            animator.addCompletion { (pos) in
+                print("finished")
+                if self.animator.isReversed {
+                    print("finished in reverse")
+                    self.setConstraints(forPosition: .compact)
+                } else {
+                    self.position = .expanded
+                }
+            }
+        case .expanded:
+            animator = UIViewPropertyAnimator(duration: 0.6, curve: .easeOut, animations: { [weak self] in
+                self?.setConstraints(forPosition: .compact)
+                superView.layoutIfNeeded()
+            })
+            animator.addCompletion { (pos) in
+                print("finished")
+                if self.animator.isReversed {
+                    print("finished in reverse")
+                    self.setConstraints(forPosition: .expanded)
+                } else {
+                    self.position = .compact
+                }
+            }
+        default:
+            fatalError("shouldn't happen")
+        }
+        return animator
+    }
+    
+    private func getAnimationPercentComplete(y: CGFloat, position: SheetPosition) -> CGFloat {
+        guard let superView = view.superview else { fatalError("no superview") }
+        let safeBottom = superView.frame.height - superView.safeAreaInsets.bottom
+        let progressFromSafeBottom = safeBottom - y
+        let total = safeBottom - superView.safeAreaInsets.top
+        return position == .compact ? progressFromSafeBottom / total : 1 - (progressFromSafeBottom / total)
+    }
+    
+    private func getAnimationPercentComplete(translation: CGPoint, position: SheetPosition) -> CGFloat {
+        guard let superView = view.superview else { fatalError("no superview") }
+        let targetY = view.frame.minY
+        let distance = abs(targetY - initialY)
+        let distancePanned = position == .compact ? -translation.y : translation.y
+        return distancePanned / distance
     }
     
     private func findNextPosition(startingPosition: SheetPosition, velocity: CGPoint) -> SheetPosition {
@@ -175,7 +238,20 @@ extension FactionBottomSheetViewController {
     func moveSheet(to position: SheetPosition) {
         guard let superView = view.superview else { return }
         
-        switch position {
+        setConstraints(forPosition: position)
+        
+        if position == .expanded {
+            print("Enabling Scroll")
+            scrollView.isScrollEnabled = true
+        }
+        
+        UIView.animate(withDuration: 0.6) {
+            superView.layoutIfNeeded()
+        }
+    }
+    
+    private func setConstraints(forPosition pos: SheetPosition) {
+        switch pos {
         case .peeking:
             compactConstraint.isActive = false
             expandedConstraint.isActive = false
@@ -196,12 +272,6 @@ extension FactionBottomSheetViewController {
             compactConstraint.isActive = false
             hiddenConstraint.isActive = false
             expandedConstraint.isActive = true
-            print("Enabling Scroll")
-            scrollView.isScrollEnabled = true
-        }
-        
-        UIView.animate(withDuration: 0.6) {
-            superView.layoutIfNeeded()
         }
     }
 }
