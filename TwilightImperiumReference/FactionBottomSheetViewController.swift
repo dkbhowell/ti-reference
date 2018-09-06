@@ -105,23 +105,50 @@ class FactionBottomSheetViewController: UIViewController {
         moveSheet(to: .compact)
     }
     
+    private func startAnimationIfNeeded(followedByPause: Bool = false) {
+        if animator == nil || animator.state == .stopped || animator.state == .inactive {
+            initialY = view.frame.minY
+            let to: SheetPosition = position == .compact ? .expanded : .compact
+            animator = getAnimatorForTransition(from: position, to: to)
+            print("starting animation from: \(position) to \(to)")
+            if followedByPause {
+                animator.pauseAnimation()
+            } else {
+                animator.startAnimation()
+            }
+        }
+    }
+    
+    private func startTransition(from: SheetPosition, to: SheetPosition) {
+        switch (from, to){
+        case (.compact, .expanded):
+            // TODO: Implement Transition
+            break
+        case (.expanded, .compact):
+            // TODO: Implement Transition
+            break
+        default:
+            fatalError("Invalid Transition from \(from) to \(to)")
+        }
+    }
+    
     var animator: UIViewPropertyAnimator!
     var initialY: CGFloat = 0
 
     @objc private func panGestureRecognized(gestureRecognizer: UIPanGestureRecognizer) {
+        guard !scrollView.isScrollEnabled else { return }
         guard let superView = view.superview else { fatalError("no superview") }
         switch gestureRecognizer.state {
         case .began:
-            initialY = view.frame.minY
-            animator = getAnimatorForTransition(fromPosition: position)
-            animator.pauseAnimation()
+            print("began pan gesture")
+            startAnimationIfNeeded(followedByPause: true)
         case .changed:
+            startAnimationIfNeeded(followedByPause: true)
             let translation = gestureRecognizer.translation(in: superView)
+//            print("pan gesture changed with translation: \(translation)")
             let percentComplete = getAnimationPercentComplete(translation: translation, position: position)
-            print("percent complete: \(percentComplete)")
             animator.fractionComplete = percentComplete
         case .ended:
-            let location = gestureRecognizer.location(in: superView)
             var velocity = gestureRecognizer.velocity(in: superView).y
             let translation = gestureRecognizer.translation(in: superView)
             
@@ -139,40 +166,22 @@ class FactionBottomSheetViewController: UIViewController {
         }
     }
     
-    private func getAnimatorForTransition(fromPosition pos: SheetPosition) -> UIViewPropertyAnimator {
+    private func getAnimatorForTransition(from: SheetPosition, to: SheetPosition) -> UIViewPropertyAnimator {
         guard let superView = view.superview else { fatalError("no superview") }
-        var animator: UIViewPropertyAnimator
-        switch pos {
-        case .compact:
-            animator = UIViewPropertyAnimator(duration: 0.6, curve: .easeOut, animations: { [weak self] in
-                self?.setConstraints(forPosition: .expanded)
-                superView.layoutIfNeeded()
-            })
-            animator.addCompletion { (pos) in
-                print("finished")
-                if self.animator.isReversed {
-                    print("finished in reverse")
-                    self.setConstraints(forPosition: .compact)
-                } else {
-                    self.position = .expanded
-                }
+        let animator = UIViewPropertyAnimator(duration: 0.4, curve: .easeOut, animations: { [weak self] in
+            self?.setConstraints(forPosition: to)
+            superView.layoutIfNeeded()
+        })
+        animator.addCompletion { (pos) in
+            print("finished animation from \(from) to \(to)")
+            if self.animator.isReversed {
+                print("finished in reverse")
+                self.setConstraints(forPosition: from)
+            } else {
+                print("Setting position to \(to)")
+                self.position = to
+                if to == .expanded { self.scrollView.isScrollEnabled = true }
             }
-        case .expanded:
-            animator = UIViewPropertyAnimator(duration: 0.6, curve: .easeOut, animations: { [weak self] in
-                self?.setConstraints(forPosition: .compact)
-                superView.layoutIfNeeded()
-            })
-            animator.addCompletion { (pos) in
-                print("finished")
-                if self.animator.isReversed {
-                    print("finished in reverse")
-                    self.setConstraints(forPosition: .expanded)
-                } else {
-                    self.position = .compact
-                }
-            }
-        default:
-            fatalError("shouldn't happen")
         }
         return animator
     }
@@ -186,7 +195,6 @@ class FactionBottomSheetViewController: UIViewController {
     }
     
     private func getAnimationPercentComplete(translation: CGPoint, position: SheetPosition) -> CGFloat {
-        guard let superView = view.superview else { fatalError("no superview") }
         let targetY = view.frame.minY
         let distance = abs(targetY - initialY)
         let distancePanned = position == .compact ? -translation.y : translation.y
@@ -278,7 +286,8 @@ extension FactionBottomSheetViewController {
 
 extension FactionBottomSheetViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return false
+        print("shouldRecognizeSimultaneouslyWith")
+        return true
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -288,9 +297,33 @@ extension FactionBottomSheetViewController: UIGestureRecognizerDelegate {
 
 extension FactionBottomSheetViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y <= -50 {
+        if scrollView.contentOffset.y <= -15 && scrollView.isScrollEnabled == true {
             scrollView.isScrollEnabled = false
-            moveSheet(to: .compact)
+//            startAnimationIfNeeded()
         }
     }
+    
+    func printState(panRec: UIPanGestureRecognizer) {
+        switch panRec.state {
+        case .began:
+            print("gesture rec state: began   - with translation: \(panRec.translation(in: view.superview!))")
+        case .changed:
+            print("gesture rec state: changed- with translation: \(panRec.translation(in: view.superview!))")
+        default:
+            print("gesture rec state: other- with translation: \(panRec.translation(in: view.superview!))")
+        }
+    }
+    
+    func printAnimatorState(animator: UIViewPropertyAnimator?) {
+        guard let animator = animator else { print("Animator is nil"); return }
+        switch animator.state {
+        case .active:
+            print("Animator state: Active")
+        case .inactive:
+            print("Animator state: Inactive")
+        case .stopped:
+            print("Animator state: Stopped")
+        }
+    }
+    
 }
